@@ -2,16 +2,18 @@ import { BranchesOutlined } from '@ant-design/icons/lib/icons';
 import { Col, Row } from 'antd';
 import Title from 'antd/lib/typography/Title';
 import React from 'react';
-import { Link } from 'react-router-dom';
-import UserProfile from './UserProfile';
-
+import UserProfile from '../Layout/UserProfile';
+import {
+    Link
+  } from "react-router-dom";
+  
 function HeaderComponent(props) { 
     return (
         <>
             <Row>
                 <Col span={6} style={styles.flex}> 
                     <BranchesOutlined style={{ color: "#3aafa9", fontSize: 36, marginRight: 10 }} /> 
-                    <Title level={3}>  Hunger Skills </Title> 
+                    <Title level={3}>  Skillers </Title> 
                 </Col>
                 <Col span={12} flex="auto" style={{display:'flex', justifyContent: 'center', alignItems: 'center'}}>
                     <Row  gutter={5} style={{flex: 'auto', textAlign:'center'}}>
@@ -19,13 +21,13 @@ function HeaderComponent(props) {
                             <Link to="/">Home</Link>
                         </Col>
                         <Col className="gutter-row"  flex="auto">
-                            <Link to="/jobs">Jobs</Link>
+                            <Link to="jobs">Jobs</Link>
                         </Col>
                         <Col className="gutter-row"  flex="auto">
-                            <Link to="/createJob">Create Job</Link>
+                            <Link to="postjob">Create Job</Link>
                         </Col>
                         <Col className="gutter-row"  flex="auto">
-                            <Link to="/recruiters">Recruiters</Link>
+                            <Link to="/recruiter">Recruiters</Link>
                         </Col>
                     </Row>
                      
