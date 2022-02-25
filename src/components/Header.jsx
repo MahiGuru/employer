@@ -2,7 +2,7 @@ import { BranchesOutlined } from '@ant-design/icons/lib/icons';
 import { Col, Row } from 'antd';
 import Title from 'antd/lib/typography/Title';
 import React from 'react';
-import UserProfile from '../Layout/UserProfile';
+import UserProfile from './UserProfile';
 import {
     Link
   } from "react-router-dom";
@@ -18,13 +18,13 @@ function HeaderComponent(props) {
                 <Col span={12} flex="auto" style={{display:'flex', justifyContent: 'center', alignItems: 'center'}}>
                     <Row  gutter={5} style={{flex: 'auto', textAlign:'center'}}>
                         <Col className="gutter-row"  flex="auto">
-                            <Link to="/">Home</Link>
+                            <Link to="/employer">Home</Link>
                         </Col>
                         <Col className="gutter-row"  flex="auto">
-                            <Link to="jobs">Jobs</Link>
+                            <Link to="/employer/jobs/list">Jobs</Link>
                         </Col>
                         <Col className="gutter-row"  flex="auto">
-                            <Link to="postjob">Create Job</Link>
+                            <Link to="/employer/jobs/create">Create Job</Link>
                         </Col>
                         <Col className="gutter-row"  flex="auto">
                             <Link to="/recruiter">Recruiters</Link>
