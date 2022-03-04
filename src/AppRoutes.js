@@ -7,6 +7,7 @@ import PostJob from './features/employers/components/PostJob';
 import EmployerLayout from './features/employers/EmployerLayout';
 import Recruiter from './features/recruiters/RecruiterLayout';
 import Nomatch from './Nomatch';
+import SuccessJob from './features/employers/components/SuccessJob';
 
 function AppRoutes(props) {  
     const appRoutes = {
@@ -24,6 +25,7 @@ function AppRoutes(props) {
                 children : [
                     { path: "list", element: <JobsList /> },        
                     { path: "create", element: <PostJob /> },        
+                    { path: "success", element: <SuccessJob /> },        
                     { path: "details/:id", element: <JobDetails /> },        
                 ]
               },

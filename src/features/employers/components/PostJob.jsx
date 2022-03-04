@@ -1,9 +1,13 @@
-import { Button, Form, Input, Select } from 'antd';
+import { CheckOutlined, CloseOutlined, LoadingOutlined, SmileOutlined, SolutionOutlined, UserOutlined } from '@ant-design/icons/lib/icons';
+import { Button, Card, Col, DatePicker, Form, Input, InputNumber, message, PageHeader, Row, Select, Space, Steps, Switch } from 'antd';
+import TextArea from 'antd/lib/input/TextArea';
 import { Formik, useFormik } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import ASelect from '../../../components/ASelect';
 import Label from '../../../utils/shared/components/Label';
+import { skillsData } from '../../../utils/shared/dummy_data/skills_data';
 
 
 const { Option } = Select;
@@ -22,24 +26,27 @@ const tailLayout = {
   },
 };
 
-
-
 const PostJob = (props) => {
+  const [minExp, setMinExp] = useState(0);
+  const [maxExp, setMaxexp] = useState(1);
+  const [recruiterShare, setRecruiterShare] = useState('Percentage');
   const onValueChange = (value) => {
     console.log(value);
     formRef.current.setFieldsValue({
       note: 'Hi, man!',
-    }); 
-  }; 
+    });
+  };
   const onReset = () => {
     formRef.current.resetFields();
-  }; 
+  };
   const formRef = React.createRef();
   const formik = useFormik({
     initialValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
+      job_title: '',
+      job_description: '',
+      key_skills: '',
+      notice_period: '',
+      target_date: ''
     },
     validationSchema: Yup.object({
       firstName: Yup.string()
@@ -54,38 +61,103 @@ const PostJob = (props) => {
       alert(JSON.stringify(values, null, 2));
     },
   });
+  const { Step } = Steps;
+  
+  let navigate = useNavigate();
 
+  const submitBtnClick = () => {
+    console.log("submit button click");
+    message.success('Successfully Job Created!');
+    // navigate('/employer/jobs/success');
+  }
   return (
-    <Form {...layout} ref={formRef} name="control-ref" >
-      <Label name="name1" label={'label1'} >
-          <Input />
-      </Label>
-      <Label name="gender1" label={'Gender1'} >
-          <Select
-              placeholder="Select a option and change input text above"
-              onChange={onValueChange}
-              allowClear
-            >
-              <Option value="male">male</Option>
-              <Option value="female">female</Option>
-              <Option value="other">other</Option>
-          </Select>
-      </Label>
-       
-       
-      <Label offset={8} span={16}>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
-          <Button htmlType="button" onClick={onReset}>
-            Reset
-          </Button>
-          <Button type="link" htmlType="button" >
-            Fill form
-          </Button>
-      </Label>  
-    </Form>
+    <>
+      
+      <Row justify="center">
+        <Col span={20}>
+          {/* <Steps>
+            <Step status="process" title="Create Job" icon={<UserOutlined />} />
+            <Step status="wait" title="Verification" icon={<SolutionOutlined />} />
+            <Step status="wait" title="Done" icon={<SmileOutlined />} />
+          </Steps> */}
+          <Card bordered={false} >
+            <PageHeader
+              className="site-page-header"
+              onBack={() => navigate('/employer/jobs/list')}
+              title="Create Job"
+            />
+            <Form {...layout} ref={formRef} name="control-ref" >
+              <Label name="title" label={'Job Title'} >
+                <Input placeholder='Ex: Consultant' />
+              </Label>
+              <Label name="job_description" label={'Job Description'} >
+                <TextArea rows={4} placeholder="Ex: Full stack web developer..." maxLength={6} />
+              </Label>
+              <Label name="skills" label={'Key Skills'} >
+                <Select
+                  mode="tags" 
+                  style={{ width: '100%' }}
+                  placeholder="Please select" 
+                  onChange={(values) => { console.log(values)}}
+                >
+                  {
+                    skillsData.map((s, i) => <Option key={'skill'+i}>{s.skill}</Option>)
+                  }
+                  
+                </Select>
+              </Label>
+              <Label name="experience" label={'Experience'} >
+                <Space> 
+                  <InputNumber min={0} max={100} defaultValue={minExp} onChange={(val) => { setMaxexp(val); console.log(val, maxExp);}} /> - 
+                  <InputNumber min={maxExp} max={100} defaultValue={maxExp}   onChange={() => {}} /> Years
+                </Space>
+              </Label>
+              
+              <Label name="compensation" label={'Compensation'} >
+                <Space> 
+                  <InputNumber min={0} max={100} defaultValue={1} onChange={(val) => { }} /> - 
+                  <InputNumber min={1} max={100} defaultValue={3} onChange={() => {}} /> LPA
+                </Space>
+              </Label>
+              <Label name="recruiter_percentage" label={'Recruiter Percentage'} >
+                <Space size={'middle'}> 
+                    <Select defaultValue="percentage" onChange={(val) => { setRecruiterShare(val)}}>
+                      <Option value="percentage">Percentage (%)</Option>
+                      <Option value="money">Money (Rs)</Option>
+                      <Option value="monthly">Monthly (Rs)</Option>
+                    </Select>
+                    <InputNumber min={0} max={recruiterShare === 'percentage'? 100 : ''} defaultValue={1} onChange={(val) => { }} />
+                </Space>
+              </Label> 
+              <Label name="target_date" label={'Expect to join before '} >
+                  <DatePicker bordered={false} /> 
+              </Label>
+              <Label name="is_interviewr" label={'Opting Interviewer?'} >
+                <Switch 
+                    checkedChildren={<CheckOutlined />}
+                    unCheckedChildren={<CloseOutlined />}
+                    defaultChecked 
+                    onChange={(values) => { console.log(values)}} 
+                />
+              </Label> 
+              <Row justify="center">
+                <Col span={2}>
+                  <Button type="primary" htmlType="submit" onClick={submitBtnClick}>
+                    Submit
+                  </Button>
+                </Col>
+                <Col span={2}>
+                  <Button htmlType="button" onClick={onReset}>
+                    Reset
+                  </Button>
+                </Col> 
+              </Row> 
+            </Form>
 
+          </Card>
+        </Col>
+      </Row>
+    </>
   );
 }
 

@@ -22,10 +22,7 @@ function HeaderComponent(props) {
                         </Col>
                         <Col className="gutter-row"  flex="auto">
                             <Link to="/employer/jobs/list">Jobs</Link>
-                        </Col>
-                        <Col className="gutter-row"  flex="auto">
-                            <Link to="/employer/jobs/create">Create Job</Link>
-                        </Col>
+                        </Col> 
                         <Col className="gutter-row"  flex="auto">
                             <Link to="/recruiter">Recruiters</Link>
                         </Col>
