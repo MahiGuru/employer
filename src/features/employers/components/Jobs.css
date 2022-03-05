@@ -1,0 +1,7 @@
+.d-flex{
+    display: flex;
+}
+.label {
+    font-weight: 500;
+    color: #00575c;
+}
