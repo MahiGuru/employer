@@ -3,12 +3,15 @@ import './App.css';
 import './Layout.css';
   
 import AppRoutes from './AppRoutes';
+import AppProvider from './AppContext';
 
 
 function App() { 
   return (
     <>
-      <AppRoutes />
+      <AppProvider>
+          <AppRoutes />
+      </AppProvider>
     </>
   );
 }

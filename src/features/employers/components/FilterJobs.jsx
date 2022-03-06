@@ -1,7 +1,9 @@
 import { Button, Checkbox, Form, Input, InputNumber, Select } from 'antd';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from '../../../AppContext';
 const { Option } = Select;
 function FilterJobs({onStatusChange, onFilterBtnClick}) {
+    const {state, dispatch} = useContext(AppContext);
     const onFinish = (values) => {
         console.log('Success:', values);
     };
@@ -18,6 +20,10 @@ function FilterJobs({onStatusChange, onFilterBtnClick}) {
         {id: 2, name: 'Active'},
         {id: 3, name: 'Hold'}
     ]
+    const dispatchAction = (values) => {
+        console.log("VALUEEEEEEES ", values);
+        // dispatch({type, payload: data})
+    }
     return (
         <div>
             <Form
@@ -34,7 +40,7 @@ function FilterJobs({onStatusChange, onFilterBtnClick}) {
                     label="Status"
                     name="status" 
                 >
-                    <Select defaultValue="Active" onChange={onStatusChange}>
+                    <Select defaultValue="Active" onChange={(val) => {dispatch({type: 'FILTERBY_STATUS', payload: val})}}>
                         {status.map(status => <Option key={'status'+status.id} value={status.name}>{status.name}</Option> )} 
                     </Select>
                 </Form.Item>
@@ -48,18 +54,18 @@ function FilterJobs({onStatusChange, onFilterBtnClick}) {
                             <Option value="less_then">&lt;</Option>
                             <Option value="greater_then">&gt;</Option>
                         </Select> 
-                        <InputNumber />
+                        <InputNumber onChange={(val) => {dispatch({type: 'FILTERBY_INTERVIEWER', payload: val})} }/>
                     </Input.Group>
                 </Form.Item> 
                 <Form.Item
                     label="Recruiters"
                     name="recruiters" 
                 >
-                    <Input placeholder='E.g: 2 ' />
+                    <InputNumber placeholder='E.g: 2 '  onChange={(val) => {dispatch({type: 'FILTERBY_RECRUITER', payload: val})} }/>
                 </Form.Item> 
 
                 <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                    <Button type="primary" htmlType="submit" onClick={onFilterBtnClick}>
+                    <Button type="primary" htmlType="submit"  onClick={dispatchAction}>
                         Filter
                     </Button>
                 </Form.Item> 

@@ -1,21 +1,22 @@
 import { FilterOutlined } from '@ant-design/icons';
 import { Button, Col, List, Popover, Row, Select } from 'antd';
 import moment from 'moment';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 import './Jobs.css';
 
 import { jobsData } from '../../../utils/shared/dummy_data/jobs_data';
 import JobCard from './JobCard';
 import FilterJobs from './FilterJobs';
+import { AppContext } from '../../../AppContext';
 
 const {Option} = Select;
 
-function JobsList() {
+function JobsList() { 
+  const {state, dispatch} = useContext(AppContext);
   const [jobsList, setJobslist] = useState(jobsData); 
-
+  console.log(state);
   let params = useParams();
-
   let navigate = useNavigate();
   
   const statusJobs = [
@@ -28,9 +29,9 @@ function JobsList() {
   
   const daysList = [
     {id: 0, name: 'Today', value:'today'},
-    {id: 1, name: 'Week ago', value:'week'},
-    {id: 2, name: 'Month ago', value:'month'},
-    {id: 4, name: 'Year ago', value:'year'}
+    {id: 1, name: 'Week', value:'week'},
+    {id: 2, name: 'Month', value:'month'},
+    {id: 4, name: 'Year', value:'year'}
   ]
 
 
