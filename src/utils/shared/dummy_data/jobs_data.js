@@ -1,7 +1,8 @@
 export const jobsData = [
     {
       id: 1,
-      posted_at: '06/03/2022',
+      created_at: '06/03/2022',
+      updated_at: '06/03/2022',
       title: 'Full Stack Developer',
       experience: '5-8 years',
       status: 'Completed',
@@ -19,7 +20,8 @@ export const jobsData = [
     },
     {
       id: 2,
-      posted_at: '21/01/2022',
+      created_at: '21/01/2022',
+      updated_at: '21/01/2022',
       title: 'Associate Software Developer',
       experience: '1-3 years',
       status: 'Hold',
@@ -34,7 +36,8 @@ export const jobsData = [
     },
     {
       id: 3,
-      posted_at: '18/08/2021',
+      created_at: '18/08/2021',
+      updated_at: '18/08/2021',
       title: 'Senior QA Test engineer',
       experience: '5-8 years',
       status: 'Active',
@@ -50,7 +53,8 @@ export const jobsData = [
     },
     {
       id: 4,
-      posted_at: '04/03/2022',
+      created_at: '04/03/2022',
+      updated_at: '04/03/2022',
       title: 'Technical Lead Developer',
       experience: '8+ years',
       status: 'Active',
@@ -69,7 +73,8 @@ export const jobsData = [
     },
     {
       id: 5,
-      posted_at: '11/02/2022',
+      created_at: '11/02/2022',
+      updated_at: '11/02/2022',
       title: 'Technical Manager',
       experience: '10+ years',
       status: 'Hold',
@@ -88,7 +93,8 @@ export const jobsData = [
     },
     {
       id: 6,
-      posted_at: '09/02/2022',
+      created_at: '09/02/2022',
+      updated_at: '09/02/2022',
       title: 'Content Writer',
       experience: '5-8 years',
       status: 'Completed',
@@ -107,7 +113,8 @@ export const jobsData = [
     },
     {
       id: 7,
-      posted_at: '02/03/2022',
+      created_at: '02/03/2022',
+      updated_at: '02/03/2022',
       title: 'SAP Engineer',
       experience: '3-5 years',
       status: 'Completed',
@@ -126,10 +133,152 @@ export const jobsData = [
     },
     {
       id: 8,
-      posted_at: '21/02/2022',
+      created_at: '21/02/2022',
+      updated_at: '21/02/2022',
       title: 'Architect',
       experience: '12+ years',
       status: 'Completed',
+      interviewer: {
+        taken: 16,
+        ShrotList: 2
+      },
+      recruiters: {
+        applied: 1,
+        interested: 5,
+        comments: 'Extra 10k expecting for the first time'
+      },
+      ratings: 4,
+      comments: 'Extra 10K per job'
+  
+    },
+    {
+      id: 9,
+      created_at: '21/02/2022',
+      updated_at: '21/02/2022',
+      title: 'Architect',
+      experience: '12+ years',
+      status: 'Completed',
+      interviewer: {
+        taken: 16,
+        ShrotList: 2
+      },
+      recruiters: {
+        applied: 1,
+        interested: 5,
+        comments: 'Extra 10k expecting for the first time'
+      },
+      ratings: 4,
+      comments: 'Extra 10K per job'
+  
+    },
+    {
+      id: 10,
+      created_at: '10/03/2022',
+      updated_at: '10/03/2022',
+      title: 'Senior Devops Engineer',
+      experience: '10+ years',
+      status: 'Active',
+      interviewer: {
+        taken: 16,
+        ShrotList: 2
+      },
+      recruiters: {
+        applied: 1,
+        interested: 5,
+        comments: 'Extra 10k expecting for the first time'
+      },
+      ratings: 4,
+      comments: 'Extra 10K per job'
+  
+    },
+    
+    {
+      id: 11,
+      created_at: '02/03/2022',
+      updated_at: '02/03/2022',
+      title: 'Java developer',
+      experience: '8+ years',
+      status: 'Active',
+      interviewer: {
+        taken: 16,
+        ShrotList: 2
+      },
+      recruiters: {
+        applied: 1,
+        interested: 5,
+        comments: 'Extra 10k expecting for the first time'
+      },
+      ratings: 4,
+      comments: 'Extra 10K per job'
+  
+    },
+    {
+      id: 12,
+      created_at: '06/03/2022',
+      updated_at: '06/03/2022',
+      title: 'UX Developer',
+      experience: '4+ years',
+      status: 'Active',
+      interviewer: {
+        taken: 16,
+        ShrotList: 2
+      },
+      recruiters: {
+        applied: 1,
+        interested: 5,
+        comments: 'Extra 10k expecting for the first time'
+      },
+      ratings: 4,
+      comments: 'Extra 10K per job'
+  
+    },
+    {
+      id: 13,
+      created_at: '03/03/2022',
+      updated_at: '03/03/2022',
+      title: 'Junior .NET Developer',
+      experience: '2+ years',
+      status: 'Active',
+      interviewer: {
+        taken: 16,
+        ShrotList: 2
+      },
+      recruiters: {
+        applied: 1,
+        interested: 5,
+        comments: 'Extra 10k expecting for the first time'
+      },
+      ratings: 4,
+      comments: 'Extra 10K per job'
+  
+    },
+    {
+      id: 14,
+      created_at: '08/03/2022',
+      updated_at: '08/03/2022',
+      title: 'Senior QA Engineer',
+      experience: '8+ years',
+      status: 'Active',
+      interviewer: {
+        taken: 16,
+        ShrotList: 2
+      },
+      recruiters: {
+        applied: 1,
+        interested: 5,
+        comments: 'Extra 10k expecting for the first time'
+      },
+      ratings: 4,
+      comments: 'Extra 10K per job'
+  
+    },
+    {
+      id: 15,
+      created_at: '09/03/2022',
+      updated_at: '09/03/2022',
+      title: 'Principal Architect',
+      experience: '14+ years',
+      status: 'Active',
       interviewer: {
         taken: 16,
         ShrotList: 2

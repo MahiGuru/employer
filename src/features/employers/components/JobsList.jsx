@@ -4,8 +4,7 @@ import moment from 'moment';
 import React, { useContext, useState } from 'react';
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 import './Jobs.css';
-
-import { jobsData } from '../../../utils/shared/dummy_data/jobs_data';
+ 
 import JobCard from './JobCard';
 import FilterJobs from './FilterJobs';
 import { AppContext } from '../../../AppContext';
@@ -14,7 +13,16 @@ const {Option} = Select;
 
 function JobsList() { 
   const {state, dispatch} = useContext(AppContext);
-  const [jobsList, setJobslist] = useState(jobsData); 
+
+  const sortList = () => {
+    return state.jobs.sort((a, b) => { 
+      var aCat = a.status + moment(a.created_at, 'DD/MM/YYYY');
+      var bCat = b.status + moment(b.created_at, 'DD/MM/YYYY');
+      return (aCat > bCat ? 1 : aCat < bCat ? -1 : 0); 
+    })
+  }
+
+  const [jobsList, setJobslist] = useState(sortList); 
   console.log(state);
   let params = useParams();
   let navigate = useNavigate();
@@ -36,10 +44,10 @@ function JobsList() {
 
 
   const onStatusChange = (status) => {  
-    let list = jobsData.filter(job => { 
+    let list = state.jobs.filter(job => { 
       return job["status"] === status
     }); 
-    if(status === 'All') { list = jobsData}
+    if(status === 'All') { list = state.jobs}
     setJobslist(list) 
   }
   const onDateChange = (val) => {
@@ -65,8 +73,8 @@ function JobsList() {
       default:
         break;
     } 
-    let list = jobsData.filter(job => {  
-      var dateB = moment(job.posted_at, 'DD/MM/YYYY');
+    let list = state.jobs.filter(job => {  
+      var dateB = moment(job.created_at, 'DD/MM/YYYY');
       const diff = dateA.diff(dateB, 'days');
       return diff <= daysDiff;
     }); 
