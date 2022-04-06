@@ -13,3 +13,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.active a {
+  background-color: #3aafa9;
+  padding: 10px;
+  color: aliceblue;
+}

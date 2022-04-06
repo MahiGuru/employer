@@ -8,9 +8,11 @@ import {
   
 function EmployerLayout(props) {
     return (
-        <Layout>
+        <Layout justify="center">
             <HeaderComponent></HeaderComponent> 
-            <Outlet />
+            <div flex="auto" align="center">
+                <Outlet />
+            </div>
         </Layout>
     );
 }

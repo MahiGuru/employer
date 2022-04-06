@@ -1,4 +1,4 @@
-import { FilterOutlined } from '@ant-design/icons';
+import { AppstoreOutlined, FilterOutlined } from '@ant-design/icons';
 import { Button, Col, List, Popover, Row, Select } from 'antd';
 import moment from 'moment';
 import React, { useContext, useState } from 'react';
@@ -108,6 +108,7 @@ function JobsList() {
               </Select>
           </Col>
           <Col flex="auto" align="end">
+              <AppstoreOutlined /> | 
               <Button htmlType="button" onClick={() => navigate('/employer/jobs/create')}>
                 Create Job
               </Button>

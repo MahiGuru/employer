@@ -81,7 +81,7 @@ function FilterJobs({onStatusChange, onFilterBtnClick}) {
                     label="Days"
                     name="days" 
                 >
-                    <Select defaultValue="Today"  onChange={(val) => setFilters({...filters, days: val})}>
+                    <Select defaultValue="Year"  onChange={(val) => setFilters({...filters, days: val})}>
                         {daysList.map(days => <Option key={'days'+days.id} value={days.value}>{days.name}</Option> )} 
                     </Select>
                 </Form.Item> 

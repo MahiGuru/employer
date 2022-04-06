@@ -8,78 +8,51 @@ import EmployerLayout from './features/employers/EmployerLayout';
 import Recruiter from './features/recruiters/RecruiterLayout';
 import Nomatch from './Nomatch';
 import SuccessJob from './features/employers/components/SuccessJob';
+import Interviewer from './features/interviewers/InterviewerLayout';
 
 function AppRoutes(props) {  
-    const appRoutes = {
+    const appRoutes = [{
         path: "/",
         element: <DashboardLayout />,
-        children: [
-          { index: true, element: <EmployerLayout /> },
+        children: [ 
+          { path: '',   element: <Navigate to='employer' />},
           {
-            path: "/employer",
+            path: "employer",
             element: <EmployerLayout />,
             children: [
               { path: '',   element: <Navigate to='jobs' />},
               { path: "jobs", 
                 element: <Outlet />,
                 children : [
+                    { path: '',   element: <Navigate to='list' />},
                     { path: "list", element: <JobsList /> },        
                     { path: "create", element: <PostJob /> },        
                     { path: "success", element: <SuccessJob /> },        
                     { path: "details/:id", element: <JobDetails /> },        
                 ]
               },
-              
+              {
+                path: "recruiters",
+                element: <Recruiter />,
+              },
+              {
+                  path: "interviewers",
+                  element: <Interviewer />,
+              },
             ],
-          },
-          {
-              path: "/recruiter",
-              element: <Recruiter />,
-          },
-          
-          {
-            path: "",
-            element: <Navigate to="/employer" />
-          },
-          { path: "*", element: <Nomatch /> },
+          }
+           
         ]
-    }
+    },
+  
+    {
+      path: "",
+      element: <Navigate to="/employer" />
+    },
+    { path: "*", element: <Nomatch /> },
+  ]
 
-    // const defaultRoute = {
-    //     path : "",
-    //     element: <Navigate to="/employer" />
-    // }
-
-    // const mainRoutes = {
-    //     path: '/',
-    //     element: <Dashboard />,
-    //     children: [
-    //       {path: '404', element: <Nomatch />},
-    //       {path: '', element: <Navigate to='employer' />},
-    //     ],
-    //   };
-    
-    //   const employerRoutes = {
-    //     path: 'employer',
-    //     element: <EmployerLayout />,
-    //     children: [
-    //       {path: '', element: <Navigate to='jobs' />}
-    //     ],
-    //   };
-      
-    //   const JobRoutes = {
-    //     path: 'jobs',
-    //     element: <JobOutlet />,
-    //     children: [
-    //       {path: '*', element: <Navigate to='/404' />},
-    //       {path: '/', element: <Navigate to='list' />},
-    //       {path: ':id', element: <JobDetails />},
-    //       {path: 'add', element: <PostJob />},
-    //       {path: 'list', element: <JobsList />},
-    //     ],
-    //   };
-    
-    const routing = useRoutes([appRoutes]);  
+    const routing = useRoutes(appRoutes);  
     return (
         <>
             {routing}
