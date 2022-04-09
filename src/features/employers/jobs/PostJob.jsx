@@ -1,4 +1,4 @@
-import { CheckOutlined, CloseOutlined } from '@ant-design/icons/lib/icons';
+import { CheckOutlined, CloseOutlined, UserOutlined, SolutionOutlined, SmileOutlined } from '@ant-design/icons/lib/icons';
 import { Button, Card, Col, DatePicker, Form, Input, InputNumber, message, PageHeader, Row, Select, Space, Steps, Switch } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
 import { useFormik } from 'formik';
@@ -69,16 +69,18 @@ const PostJob = (props) => {
     message.success('Successfully Job Created!');
     // navigate('/employer/jobs/success');
   }
+  
+  const [current, setCurrent] = React.useState(0);
   return (
     <>
       
       <Row justify="center">
-        <Col span={20}>
-          {/* <Steps>
-            <Step status="process" title="Create Job" icon={<UserOutlined />} />
-            <Step status="wait" title="Verification" icon={<SolutionOutlined />} />
-            <Step status="wait" title="Done" icon={<SmileOutlined />} />
-          </Steps> */}
+        <Col span={18}>
+          <Steps current={current}>
+            <Step title="Job Details" icon={<UserOutlined />} />
+            <Step title="Job Description" icon={<SolutionOutlined />} />
+            <Step title="Done" icon={<SmileOutlined />} />
+          </Steps>
           <Card bordered={false} >
             <PageHeader
               className="site-page-header"
@@ -89,10 +91,46 @@ const PostJob = (props) => {
               <Label name="title" label={'Job Title'} >
                 <Input placeholder='Ex: Consultant' />
               </Label>
+              <Label name="expereience" label={'Experience'} >
+                <Input placeholder='Ex: Consultant' />
+              </Label>
+              <Label name="location" label={'Preferred Locations'} >
+                <Input placeholder='Ex: Consultant' />
+              </Label>
+              <Label name="compensation" label={'Compensation'} >
+                  <Space style={{textAlign:'left'}}>  
+                    <InputNumber min={0} max={100} defaultValue={1} onChange={(val) => { }} /> - 
+                    <InputNumber min={1} max={100} defaultValue={3} onChange={() => {}} /> Currency 
+                    <Select defaultValue="percentage" onChange={(val) => { console.log(val)}}>
+                      <Option value="percentage">Lakhs</Option>
+                      <Option value="money">Dollers</Option> 
+                    </Select>
+                  </Space>
+              </Label>
+              <Label name="key_skills" label={'Must have skills'} >
+                <Select
+                    mode="tags" 
+                    style={{ width: '100%' }}
+                    placeholder="Please select" 
+                    onChange={(values) => { console.log(values)}}
+                  >
+                    {
+                      skillsData.map((s, i) => <Option key={'skill'+i}>{s.skill}</Option>)
+                    }
+                    
+                  </Select>
+              </Label>
+
+
+              <Button type="primary" onClick={() => {setCurrent(current + 1)}}>
+                Next
+              </Button>
+
+
               <Label name="job_description" label={'Job Description'} >
                 <TextArea rows={4} placeholder="Ex: Full stack web developer..." maxLength={6} />
               </Label>
-              <Label name="skills" label={'Key Skills'} >
+              <Label name="skills" label={'Required Skills'} >
                 <Select
                   mode="tags" 
                   style={{ width: '100%' }}
@@ -106,7 +144,7 @@ const PostJob = (props) => {
                 </Select>
               </Label>
               <Label name="experience" label={'Experience'} >
-                <Space> 
+                <Space align="start"> 
                   <InputNumber min={0} max={100} defaultValue={minExp} onChange={(val) => { setMaxexp(val); console.log(val, maxExp);}} /> - 
                   <InputNumber min={maxExp} max={100} defaultValue={maxExp}   onChange={() => {}} /> Years
                 </Space>
@@ -154,6 +192,7 @@ const PostJob = (props) => {
             </Form>
 
           </Card>
+          
         </Col>
       </Row>
     </>

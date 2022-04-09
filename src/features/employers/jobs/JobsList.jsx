@@ -1,19 +1,19 @@
 import { AppstoreOutlined, FilterOutlined } from '@ant-design/icons';
 import { Button, Col, List, Popover, Row, Select } from 'antd';
 import moment from 'moment';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 import './Jobs.css';
  
-import JobCard from './JobCard';
-import FilterJobs from './FilterJobs';
+import JobCard from './components/JobCard'; 
 import { AppContext } from '../../../AppContext';
+import FilterJobs from './components/FilterJobs';
 
 const {Option} = Select;
 
 function JobsList() { 
   const {state, dispatch} = useContext(AppContext);
-
+ 
   const sortList = () => {
     return state.jobs.sort((a, b) => { 
       var aCat = a.status + moment(a.created_at, 'DD/MM/YYYY');
@@ -21,7 +21,11 @@ function JobsList() {
       return (aCat > bCat ? 1 : aCat < bCat ? -1 : 0); 
     })
   }
-
+  useEffect(() => {
+    setJobslist(state.jobs.filter((job) => {
+      return !job.isDeleted;
+    }))
+  }, [state.jobs]);
   const [jobsList, setJobslist] = useState(sortList); 
   console.log(state);
   let params = useParams();
@@ -128,8 +132,8 @@ function JobsList() {
             }}
             dataSource={jobsList}
             renderItem={item => (
-              <List.Item key={item.title}>
-                 <JobCard job={item} />
+              <List.Item key={item.title} >
+                 <JobCard job={item} clickTitleAction={() => navigate(`/employer/jobs/details/${item.id}`)}/>
               </List.Item>
             )}
           />

@@ -1,6 +1,6 @@
 import { Button, Checkbox, Form, Input, InputNumber, Select } from 'antd';
-import React, { useContext, useState } from 'react';
-import { AppContext } from '../../../AppContext';
+import React, { useContext, useState } from 'react'; 
+import {AppContext} from '../../../../AppContext';
 const { Option } = Select;
 function FilterJobs({onStatusChange, onFilterBtnClick}) {
     const {state, dispatch} = useContext(AppContext);

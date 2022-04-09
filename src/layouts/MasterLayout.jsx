@@ -1,12 +1,9 @@
-import Layout from 'antd/lib/layout/layout';
 import React from 'react';
-import HeaderComponent from '../../components/Header'; 
-import {
-    Outlet, 
-  } from "react-router-dom"; 
+import { Layout } from "antd";
+import { Outlet } from "react-router-dom";
+import HeaderComponent from "../components/Header";
 
-  
-function EmployerLayout(props) {
+const MasterLayout = () => {
     return (
         <Layout justify="center">
             <HeaderComponent></HeaderComponent> 
@@ -16,5 +13,5 @@ function EmployerLayout(props) {
         </Layout>
     );
 }
-
-export default EmployerLayout;
+ 
+export default MasterLayout;
