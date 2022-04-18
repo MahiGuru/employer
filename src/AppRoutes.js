@@ -2,7 +2,7 @@ import React from 'react';
 import { Navigate, Outlet, useRoutes } from 'react-router-dom'; 
 import JobDetails from './features/employers/jobs/JobDetails'; 
 import JobsList from './features/employers/jobs/JobsList';
-import PostJob from './features/employers/jobs/PostJob';  
+import PostJob from './features/employers/jobs/CreateJob';  
 import Nomatch from './Nomatch';
 import SuccessJob from './features/employers/jobs/components/SuccessJob'; 
 import MasterLayout from './layouts/MasterLayout';

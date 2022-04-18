@@ -7,11 +7,24 @@ import './Jobs.css';
  
 import JobCard from './components/JobCard'; 
 import { AppContext } from '../../../AppContext';
-import FilterJobs from './components/FilterJobs';
+import FilterJobs from './components/FilterJobs'; 
 
 const {Option} = Select;
 
 function JobsList() { 
+
+  const initialValues = {
+    job_title: '',
+    job_description: '',
+    key_skills: '',
+    notice_period: '',
+    target_date: ''
+  };
+  const handleSubmit = (formProps) => {
+    console.log("Handle submit button click", formProps);
+    // navigate('/employer/jobs/success');
+  }
+
   const {state, dispatch} = useContext(AppContext);
  
   const sortList = () => {
@@ -92,7 +105,7 @@ function JobsList() {
     <>
       <h2>{params.jobId}</h2>
       <Outlet /> 
-      
+       
       <Row justify="center">
         <Col span={20}>
         <Row>
