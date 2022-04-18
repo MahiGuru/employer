@@ -1,66 +1,42 @@
 import { UserOutlined, SolutionOutlined, SmileOutlined } from '@ant-design/icons/lib/icons';
-import { Button, Card, Col, Form, message, PageHeader, Row, Select, Steps } from 'antd';
-import { useFormik } from 'formik';
-import React, { useState } from 'react';
+import { Card, Col, PageHeader, Row, Steps } from 'antd';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import * as Yup from 'yup';
-import HtmlEditor from '../../../components/HtmlEditor';
 import BasicInfoJob from './components/CreateJobs/BasicJobInfo';
 import JobDescription from './components/CreateJobs/JobDescriptionInfo';
-import RecruiterJobs from './components/CreateJobs/RecruiterJobsInfo';
+import TalenterOptionInfo from './components/CreateJobs/TalenterOptionsInfo';
 
+const JobSteps = props => {
+  let { currentStep, callbackHandler } = props;
 
-const layout = {
-  labelCol: {
-    span: 8,
-  },
-  wrapperCol: {
-    span: 16,
-  },
+  switch (currentStep) {
+    case 'BASIC_JOB':
+      return <BasicInfoJob submitHandler={callbackHandler} />;
+      break;
+    case 'JOB_DESCRIPTION':
+      return <JobDescription submitHandler={callbackHandler} />
+      break;
+    case 'TALENTER_OPTIONS':
+      return <TalenterOptionInfo submitHandler={callbackHandler} />
+      break;
+    default:
+      return null;
+  }
 };
+
+
 const PostJob = (props) => {
 
-  const onReset = () => {
-    formRef.current.resetFields();
-  };
-  const formRef = React.createRef();
-  const formik = useFormik({
-    initialValues: {
-      job_title: '',
-      job_details: '',
-      key_skills: '',
-      notice_period: '',
-      target_date: ''
-    },
-    validationSchema: Yup.object({
-      firstName: Yup.string()
-        .max(15, 'Must be 15 characters or less')
-        .required('Required'),
-      lastName: Yup.string()
-        .max(20, 'Must be 20 characters or less')
-        .required('Required'),
-      email: Yup.string().email('Invalid email address').required('Required'),
-    }),
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
   const { Step } = Steps;
 
   let navigate = useNavigate();
-
-  const submitBtnClick = () => {
-    console.log("submit button click");
-    message.success('Successfully Job Created!');
-    // navigate('/employer/jobs/success');
-  }
 
   const [currentStep, setCurrentStep] = React.useState('basic_job_info');
   const [current, setCurrent] = React.useState(0);
   return (
     <>
       <Row justify="center">
-        <Col span={18}> 
+        <Col span={18}>
           <PageHeader
             className="site-page-header"
             onBack={() => navigate('/employer/jobs/list')}
@@ -71,56 +47,21 @@ const PostJob = (props) => {
               <Steps current={current} direction="vertical" size="small" align={'center'}>
                 <Step title="Job Details" icon={<UserOutlined />} />
                 <Step title="Job Description" icon={<SolutionOutlined />} />
-                <Step title="Done" icon={<SmileOutlined />} />
+                <Step title="Talenter Options" icon={<SmileOutlined />} />
               </Steps>
             </Col>
             <Col span={20}>
-              <Card bordered={false} > 
-                  {
-                    currentStep === 'basic_job_info' ? (
-                      <>
-                        <BasicInfoJob submitHandler={(values) => { 
-                            setCurrent(current + 1); 
-                            setCurrentStep('job_details');
-                            console.log('Parent basic info ', values);
-                          }
-                          } /> 
-                      </>
-                    ) : null
+              <Card bordered={false} >
+
+                {(() => {
+                  if (currentStep === 'basic_job_info') {
+                    return <BasicInfoJob submitHandler={(values) => { setCurrent(current + 1); setCurrentStep('job_details'); }} />
+                  } else if (currentStep === 'job_details') {
+                    return <JobDescription submitHandler={(values) => { setCurrent(current + 1); setCurrentStep('talenter_info'); }} />
+                  } else if (currentStep === 'talenter_info') {
+                    return <TalenterOptionInfo submitHandler={(values) => { setCurrent(current + 1); setCurrentStep('talenter_info'); }} />
                   }
-
-                  {
-                    currentStep === 'job_details' ? (
-                      <>
-                        <JobDescription  submitHandler={(values) => { 
-                            setCurrent(current + 1); 
-                            setCurrentStep('recruiter_and_interviewers');
-                            console.log('Parent About job details ', values);
-                          }} />  
-                      </>
-                    ) : null
-                  }
-
-                  {
-                    currentStep === 'recruiter_and_interviewers' ? (
-                      <>
-                        <RecruiterJobs />
-                        <Row justify="center">
-                          <Col span={2}>
-                            <Button type="primary" htmlType="submit" onClick={submitBtnClick}>
-                              Submit
-                            </Button>
-                          </Col>
-                          <Col span={2}>
-                            <Button htmlType="button" onClick={onReset}>
-                              Reset
-                            </Button>
-                          </Col>
-                        </Row>
-                      </>
-                    ) : null
-                  } 
-
+                })()}
               </Card>
 
             </Col>

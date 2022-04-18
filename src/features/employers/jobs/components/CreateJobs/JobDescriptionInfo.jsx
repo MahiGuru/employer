@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik } from 'formik';
-import { message, Form, Row, Col, Button, Space, Typography } from 'antd';
+import { Form, Row, Col, Space, Typography } from 'antd';
 import { FormikDebug, FormItem, Input, InputNumber, Radio, ResetButton, Select, SubmitButton } from 'formik-antd';
 import * as Yup from 'yup';
 import HtmlEditor from '../../../../../components/HtmlEditor';
@@ -18,7 +18,7 @@ const jobDetailsSchema = Yup.object().shape({
         period: Yup.number().typeError("Please select period"),
         period_type: Yup.string().required("Please enter period type")
     }), 
-    required_skills: Yup.array().min(4, "Min 2 skills are required").required("Please select atleast 2 skills")
+    required_skills: Yup.array().min(1, "Min 2 skills are required").required("Please select atleast 2 skills")
 });
 
 function JobDescription({submitHandler}) {  
@@ -28,7 +28,7 @@ function JobDescription({submitHandler}) {
             initialValues={{
               validateOnMount: true,
               job_description: "Test Job",
-              objectives: "",
+              objectives: "OBJECTIVES HERE..",
               notice: { period: 5, period_type: 'days'},
               role_responsibility: "Roles and responsibility are here...",
               required_skills: ['react', 'angular'],
