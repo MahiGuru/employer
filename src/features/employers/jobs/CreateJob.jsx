@@ -27,7 +27,7 @@ const PostJob = (props) => {
   const formik = useFormik({
     initialValues: {
       job_title: '',
-      job_description: '',
+      job_details: '',
       key_skills: '',
       notice_period: '',
       target_date: ''
@@ -55,7 +55,7 @@ const PostJob = (props) => {
     // navigate('/employer/jobs/success');
   }
 
-  const [currentStep, setCurrentStep] = React.useState('basic_info');
+  const [currentStep, setCurrentStep] = React.useState('basic_job_info');
   const [current, setCurrent] = React.useState(0);
   return (
     <>
@@ -77,11 +77,11 @@ const PostJob = (props) => {
             <Col span={20}>
               <Card bordered={false} > 
                   {
-                    currentStep === 'basic_info' ? (
+                    currentStep === 'basic_job_info' ? (
                       <>
                         <BasicInfoJob submitHandler={(values) => { 
                             setCurrent(current + 1); 
-                            setCurrentStep('about_job');
+                            setCurrentStep('job_details');
                             console.log('Parent basic info ', values);
                           }
                           } /> 
@@ -90,12 +90,13 @@ const PostJob = (props) => {
                   }
 
                   {
-                    currentStep === 'about_job' ? (
+                    currentStep === 'job_details' ? (
                       <>
-                        <JobDescription /> 
-                        <Button type="primary" onClick={() => { setCurrent(current + 1); setCurrentStep('recruiter_and_interviewers') }}>
-                          Recruiters And Interviewers
-                        </Button>
+                        <JobDescription  submitHandler={(values) => { 
+                            setCurrent(current + 1); 
+                            setCurrentStep('recruiter_and_interviewers');
+                            console.log('Parent About job details ', values);
+                          }} />  
                       </>
                     ) : null
                   }

@@ -41,9 +41,7 @@ function BasicJobInfo({submitHandler}) {
         }}
         validationSchema={BasicJobSchema}
         onSubmit={async (values, { validate }) => {
-          console.log(validate);
-          console.log("Values ", values)
-          message.info(JSON.stringify(values, null, 4))
+          console.log("Values ", values) 
           submitHandler(values);
         }}
         validateOnBlur={true}
@@ -116,10 +114,10 @@ function BasicJobInfo({submitHandler}) {
 
             <Row style={{ marginTop: 60 }}>
               <Col offset={8}>
-                <Button.Group>
-                  <ResetButton>Reset</ResetButton>
-                  <SubmitButton onClick={formik.submitForm} disabled={!formik.isValid}>Submit</SubmitButton>
-                </Button.Group>
+                <Space>
+                    <ResetButton>Reset</ResetButton>
+                    <SubmitButton onClick={formik.submitForm} disabled={!formik.isValid}>Go to Job Details</SubmitButton> 
+                </Space>
               </Col>
             </Row>
             <pre style={{ flex: 1 }}> 

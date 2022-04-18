@@ -4,3 +4,13 @@
 .editor-icons{
     cursor: pointer;
 }
+.rdw-editor-main {
+    border: 1px solid rgb(233, 233, 233);
+    height: 200px;
+    overflow: auto;
+    padding:0 20px;
+    margin-top:-8px;
+}
+.editor_error{
+    border: 1px solid rgb(163, 0, 0); 
+}

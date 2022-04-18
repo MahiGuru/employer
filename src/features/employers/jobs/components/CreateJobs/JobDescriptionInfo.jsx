@@ -1,42 +1,118 @@
 import React from 'react';
+import { Formik } from 'formik';
+import { message, Form, Row, Col, Button, Space, Typography } from 'antd';
+import { FormikDebug, FormItem, Input, InputNumber, Radio, ResetButton, Select, SubmitButton } from 'formik-antd';
+import * as Yup from 'yup';
+import HtmlEditor from '../../../../../components/HtmlEditor';
 
-import Label from '../../../../../utils/shared/components/Label';
-import { Input, Space, InputNumber, Select, DatePicker } from 'antd'; 
-import { skillsData } from '../../../../../utils/shared/dummy_data/skills_data';
-import TextArea from 'antd/lib/input/TextArea';
-import HtmlEditor from './../../../../../components/HtmlEditor';
-const { Option } = Select;
+const { Text } = Typography; 
+const jobDetailsSchema = Yup.object().shape({
+    job_description: Yup.string()
+        .min(15, 'Too Short!')
+        .required('Please enter Job description'),
+    role_responsibility: Yup.string().min(5, 'Too Short!').required('Please enter roles and responsibilitys'),
+    objectives: Yup.string()
+        .min(2, 'Too Short!')
+        .required('Please enter objective'),
+    notice: Yup.object().shape({
+        period: Yup.number().typeError("Please select period"),
+        period_type: Yup.string().required("Please enter period type")
+    }), 
+    required_skills: Yup.array().min(4, "Min 2 skills are required").required("Please select atleast 2 skills")
+});
 
-function JobDescription(props) {
+function JobDescription({submitHandler}) {  
     return (
         <div>
-            <Label name="compensation" label={'Compensation'} >
-                <Space>
-                    <InputNumber min={0} max={100} defaultValue={1} onChange={(val) => { }} /> -
-                    <InputNumber min={1} max={100} defaultValue={3} onChange={() => { }} /> LPA
-                </Space>
-            </Label>  
-            <Label name="job_description" label={'Job Description'} >
-                <TextArea rows={4} placeholder="Ex: Full stack web developer..." maxLength={6} />
-            </Label>
-            <Label name="skills" label={'Required Skills'} >
-                <Select
-                    mode="tags"
-                    style={{ width: '100%' }}
-                    placeholder="Please select"
-                    onChange={(values) => { console.log(values) }}
-                >
-                    {
-                        skillsData.map((s, i) => <Option key={'skill' + i}>{s.skill}</Option>)
+          <Formik
+            initialValues={{
+              validateOnMount: true,
+              job_description: "Test Job",
+              objectives: "",
+              notice: { period: 5, period_type: 'days'},
+              role_responsibility: "Roles and responsibility are here...",
+              required_skills: ['react', 'angular'],
+            }}
+            validationSchema={jobDetailsSchema}
+            onSubmit={async (values, { validate }) => {
+              console.log("Values ", values) 
+              submitHandler(values);
+            }}
+            validateOnBlur={true}
+            validate={values => {
+              console.log("Validate >> ", values);
+              return;
+            }}
+            render={(formik) => (
+              <Form className='job-details-form' labelCol={{ lg: 5 }} wrapperCol={{ lg: 20 }} layout='vertical' style={{ textAlign: 'left' }}>
+                <FormItem name="objectives" label="Objectives" required={true}>
+                  <Input.TextArea  rows={4} name="objectives" placeholder="Objectives" />
+                </FormItem>
+                <FormItem name="job_description" label="Job Description" required={true}>
+                    <HtmlEditor editorClass={formik.errors?.job_description ? "editor-class editor_error" : 'editor-class'} callbackHandler={(data) =>{ 
+                        formik.setFieldValue('job_description', data);
                     }
-
-                </Select>
-            </Label>
-            <Label name="target_date" label={'Expect to join before '} >
-                <DatePicker bordered={false} />
-            </Label>
+                    } /> 
+                </FormItem>
+                <FormItem name="role_responsibility" label="Roles &amp; Responsibilitys" required={true}>
+                  <Input.TextArea  rows={4}  name="role_responsibility" placeholder="Roles and Responsibility" />
+                </FormItem>
+                <Form.Item
+                  label="Notice Period"
+                  required={false}
+                  key={'notice_period_key'}
+                >
+                  <Space style={{ display: 'flex', alignItems: 'center' }} >
+                    <InputNumber name="notice.period" placeholder="eg: 1" min={0} status={formik.errors?.notice?.period ? "error" : ''} />  
+                    <Radio.Group name="notice.period_type" status={formik.errors?.notice?.period_type ? "error" : ''} >
+                      <Radio.Button value={'days'}>Days</Radio.Button>
+                      <Radio.Button value={'months'}>Months</Radio.Button>
+                    </Radio.Group>
+                  </Space>
+                  <Text type="danger" style={{display:'block'}}>{formik.errors && formik.errors?.notice?.period} </Text>
+                  <Text type="danger" style={{display:'block'}}>{formik.errors && formik.errors?.notice?.period_type} </Text>
+                </Form.Item>  
+                <FormItem name="required_skills" label="Required Skills" required={true}>
+                  <Select
+                    name="required_skills"
+                    placeholder="Select skills"
+                    mode="multiple"
+                  >
+                    <Select.OptGroup label="Front End">
+                      <Select.Option value={'angular'}>Angular</Select.Option>
+                      <Select.Option value={'react'}>React</Select.Option>
+                      <Select.Option value={'jquery'}>Jquery</Select.Option>
+                      <Select.Option value={'html'}>HTML</Select.Option>
+                      <Select.Option value={'css'}>CSS</Select.Option>
+                    </Select.OptGroup>
+                    <Select.OptGroup label="Server Side">
+                      <Select.Option value={'node'}>Nodejs</Select.Option>
+                      <Select.Option value={'python'}>Python</Select.Option>
+                      <Select.Option value={'.net'}>.Net</Select.Option>
+                      <Select.Option value={'java'}>Java</Select.Option>
+                      <Select.Option value={'go'}>Go</Select.Option>
+                      <Select.Option value={'php'}>PHP</Select.Option>
+                    </Select.OptGroup>
+                  </Select>
+                </FormItem>
+    
+                <Row style={{ marginTop: 60 }}>
+                  <Col offset={8}> 
+                    <Space>
+                      <ResetButton>Reset</ResetButton>
+                      <SubmitButton onClick={formik.submitForm} disabled={!formik.isValid}>Choose Talenters options</SubmitButton> 
+                    </Space>
+                  </Col>
+                </Row>
+                <pre style={{ flex: 1 }}> 
+                  {JSON.stringify(formik.errors)}
+                  <FormikDebug />
+                </pre>
+              </Form>
+            )}
+          />
         </div>
-    );
+      );
 }
 
 export default JobDescription;
