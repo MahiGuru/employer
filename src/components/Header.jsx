@@ -12,14 +12,14 @@ function HeaderComponent(props) {
     console.log("path name ", pathname);
     return (
         <>
-            <Row>
+            <Row style={{...styles.borderBottom, ...styles.background}}>
                 <Col span={6} style={styles.flex}> 
                     <BranchesOutlined style={{ color: "#3aafa9", fontSize: 36, marginRight: 10 }} /> 
                     <Title level={3}>  Skillers </Title> 
                 </Col>
                 <Col span={12} flex="auto" style={{display:'flex', justifyContent: 'center', alignItems: 'center'}}>
                     <Row  gutter={8} style={{flex: 'auto', textAlign:'center'}}>
-                        <Col  flex="auto" className={{'active': ['/employer/jobs/list'].includes(pathname) ? true: false}}>
+                        <Col  flex="auto" className={{'active': /jobs/.test(pathname) ? true: false}}>
                             <Link to="/employer/jobs/list">My Jobs</Link>
                         </Col> 
                         <Col flex="auto" className={{'active': ['/employer/recruiters'].includes(pathname) ? true: false}}>
@@ -44,6 +44,9 @@ const styles = {
         flexDirection: 'row',
         padding:'20px'
     },
+    background: {
+        background: '#FFF',
+    },
     menu: {
         display: 'flex',
         padding: '20px'
@@ -53,6 +56,9 @@ const styles = {
         justifyContent: 'end',
         alignItems: 'center',
         padding:'20px'
+    },
+    borderBottom: {
+        borderBottom: '1px solid #CCC'
     }
 
 }

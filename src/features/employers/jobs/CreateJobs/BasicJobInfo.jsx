@@ -1,8 +1,9 @@
 import React from 'react';
 import { Formik } from 'formik';
-import { message, Form, Row, Col, Button, Space, Typography } from 'antd';
-import { FormikDebug, FormItem, Input, InputNumber, Radio, ResetButton, Select, SubmitButton } from 'formik-antd';
+import { Form, Row, Col, Button, Space, Typography } from 'antd';
+import { FormItem, Input, InputNumber, Radio, ResetButton, Select, SubmitButton } from 'formik-antd';
 import * as Yup from 'yup';
+import { skillsData } from '../../../../utils/shared/dummy_data/skills_data';
 
 const { Text } = Typography;
 
@@ -27,12 +28,11 @@ const BasicJobSchema = Yup.object().shape({
     type: Yup.string().required("Min compensation is required")
   })
 });
-function BasicJobInfo({submitHandler}) {
+function BasicJobInfo({submitHandler, stepBackHandler}) {
   return (
     <div>
       <Formik
-        initialValues={{
-          validateOnMount: true,
+        initialValues={{ 
           jobTitle: "Test Job",
           experience: { expmin: 1, expmax: 6, type: 'years' },
           compensation: { compMin: 5, compMax: 6, type: 'lakhs', symbol: '&#8377;' },
@@ -94,36 +94,25 @@ function BasicJobInfo({submitHandler}) {
                 placeholder="Select skills by groups"
                 mode="multiple"
               >
-                <Select.OptGroup label="Front End">
-                  <Select.Option value={'angular'}>Angular</Select.Option>
-                  <Select.Option value={'react'}>React</Select.Option>
-                  <Select.Option value={'jquery'}>Jquery</Select.Option>
-                  <Select.Option value={'html'}>HTML</Select.Option>
-                  <Select.Option value={'css'}>CSS</Select.Option>
-                </Select.OptGroup>
-                <Select.OptGroup label="Server Side">
-                  <Select.Option value={'node'}>Nodejs</Select.Option>
-                  <Select.Option value={'python'}>Python</Select.Option>
-                  <Select.Option value={'.net'}>.Net</Select.Option>
-                  <Select.Option value={'java'}>Java</Select.Option>
-                  <Select.Option value={'go'}>Go</Select.Option>
-                  <Select.Option value={'php'}>PHP</Select.Option>
-                </Select.OptGroup>
-              </Select>
+                {skillsData.map(skillData => {
+                  return <Select.Option value={skillData.skill} key={skillData.skill}>{skillData.skill}</Select.Option>
+                })}  
+              </Select> 
             </FormItem>
 
             <Row style={{ marginTop: 60 }}>
               <Col offset={8}>
                 <Space>
+                    <Button onClick={stepBackHandler}>Back</Button>
                     <ResetButton>Reset</ResetButton>
                     <SubmitButton onClick={formik.submitForm} disabled={!formik.isValid}>Go to Job Details</SubmitButton> 
                 </Space>
               </Col>
             </Row>
-            <pre style={{ flex: 1 }}> 
+            {/* <pre style={{ flex: 1 }}> 
               {JSON.stringify(formik.errors)}
               <FormikDebug />
-            </pre>
+            </pre> */}
           </Form>
         )}
       />

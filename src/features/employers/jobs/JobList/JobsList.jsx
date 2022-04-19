@@ -3,28 +3,16 @@ import { Button, Col, List, Popover, Row, Select } from 'antd';
 import moment from 'moment';
 import React, { useContext, useState, useEffect } from 'react';
 import { Outlet, useNavigate, useParams } from "react-router-dom";
-import './Jobs.css';
+import '../Jobs.css';
  
-import JobCard from './components/JobCard'; 
-import { AppContext } from '../../../AppContext';
-import FilterJobs from './components/FilterJobs'; 
+import JobCardComponent from './JobCardComponent';  
+import FilterJobs from './../FilterJob/FilterJobs';
+import { AppContext } from './../../../../AppContext';
+import { getDateDifference } from './../../../../utils/dateUtils';
 
 const {Option} = Select;
 
-function JobsList() { 
-
-  const initialValues = {
-    job_title: '',
-    job_description: '',
-    key_skills: '',
-    notice_period: '',
-    target_date: ''
-  };
-  const handleSubmit = (formProps) => {
-    console.log("Handle submit button click", formProps);
-    // navigate('/employer/jobs/success');
-  }
-
+function JobsList() {  
   const {state, dispatch} = useContext(AppContext);
  
   const sortList = () => {
@@ -90,9 +78,11 @@ function JobsList() {
       default:
         break;
     } 
-    let list = state.jobs.filter(job => {  
+    let list = state.jobs.filter(job => {
+      // const diff = getDateDifference(new Date(), job.created_at, 'months');
       var dateB = moment(job.created_at, 'DD/MM/YYYY');
       const diff = dateA.diff(dateB, 'days');
+      console.log("diff <= daysDiff  ", diff <= daysDiff)
       return diff <= daysDiff;
     }); 
     setJobslist(list);
@@ -134,11 +124,7 @@ function JobsList() {
          
           <List
             itemLayout="horizontal"
-            grid={{
-              gutter: 20,
-              xs: 3,
-              sm: 3,
-              md: 3,
+            grid={{ gutter: 20, 
               lg: 3,
               xl: 3,
               xxl: 3,
@@ -146,7 +132,7 @@ function JobsList() {
             dataSource={jobsList}
             renderItem={item => (
               <List.Item key={item.title} >
-                 <JobCard job={item} clickTitleAction={() => navigate(`/employer/jobs/details/${item.id}`)}/>
+                 <JobCardComponent job={item} clickTitleAction={() => navigate(`/employer/jobs/details/${item.id}`)}/>
               </List.Item>
             )}
           />

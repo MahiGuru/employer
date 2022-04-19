@@ -1,8 +1,8 @@
 import { Button, Card, Col, Row, List } from 'antd';
 import React, { useContext, useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { AppContext } from '../../../AppContext';
-import ReadOnlyField from './../../../utils/shared/components/ReadOnlyField';
+import { useNavigate, useParams } from 'react-router-dom'; 
+import ReadOnlyField from '../../../../utils/shared/components/ReadOnlyField';
+import { AppContext } from './../../../../AppContext';
  
 function JobDetails(props) { 
   const [selectedJob, setSelectedJob] = useState(1); 

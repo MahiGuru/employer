@@ -1,9 +1,9 @@
 import React from 'react';
 import { Formik } from 'formik';
-import { Form, Row, Col, Space, Typography } from 'antd';
+import { Form, Row, Col, Space, Typography, Button } from 'antd';
 import { FormikDebug, FormItem, Input, InputNumber, Radio, ResetButton, Select, SubmitButton } from 'formik-antd';
 import * as Yup from 'yup';
-import HtmlEditor from '../../../../../components/HtmlEditor';
+import HtmlEditor from '../../../../components/HtmlEditor';
 
 const { Text } = Typography; 
 const jobDetailsSchema = Yup.object().shape({
@@ -21,12 +21,11 @@ const jobDetailsSchema = Yup.object().shape({
     required_skills: Yup.array().min(1, "Min 2 skills are required").required("Please select atleast 2 skills")
 });
 
-function JobDescription({submitHandler}) {  
+function JobDescription({submitHandler, stepBackHandler}) {  
     return (
         <div>
           <Formik
-            initialValues={{
-              validateOnMount: true,
+            initialValues={{ 
               job_description: "Test Job",
               objectives: "OBJECTIVES HERE..",
               notice: { period: 5, period_type: 'days'},
@@ -39,8 +38,7 @@ function JobDescription({submitHandler}) {
               submitHandler(values);
             }}
             validateOnBlur={true}
-            validate={values => {
-              console.log("Validate >> ", values);
+            validate={values => { 
               return;
             }}
             render={(formik) => (
@@ -99,15 +97,12 @@ function JobDescription({submitHandler}) {
                 <Row style={{ marginTop: 60 }}>
                   <Col offset={8}> 
                     <Space>
+                      <Button onClick={stepBackHandler}>Back</Button>
                       <ResetButton>Reset</ResetButton>
                       <SubmitButton onClick={formik.submitForm} disabled={!formik.isValid}>Choose Talenters options</SubmitButton> 
                     </Space>
                   </Col>
-                </Row>
-                <pre style={{ flex: 1 }}> 
-                  {JSON.stringify(formik.errors)}
-                  <FormikDebug />
-                </pre>
+                </Row> 
               </Form>
             )}
           />

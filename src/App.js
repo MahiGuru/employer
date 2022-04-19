@@ -7,12 +7,10 @@ import AppProvider from './AppContext';
 
 
 function App() { 
-  return (
-    <>
+  return ( 
       <AppProvider>
           <AppRoutes />
-      </AppProvider>
-    </>
+      </AppProvider> 
   );
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik } from 'formik';
-import { Form, Row, Col, Space, Typography } from 'antd';
+import { Form, Row, Col, Space, Typography, Button } from 'antd';
 import { FormikDebug, FormItem, ResetButton, Select, SubmitButton } from 'formik-antd';
 import * as Yup from 'yup';
  
@@ -9,12 +9,11 @@ const talenterInfoSchema = Yup.object().shape({
     interviewers: Yup.array().nullable()
 });
 
-function TalenterOptionInfo({submitHandler}) {  
+function TalenterOptionInfo({submitHandler, stepBackHandler}) {  
     return (
         <div>
           <Formik
             initialValues={{
-              validateOnMount: true,
               recruiters: [],
               interviewers: []
             }}
@@ -63,15 +62,12 @@ function TalenterOptionInfo({submitHandler}) {
                 <Row style={{ marginTop: 60 }}>
                   <Col offset={8}> 
                     <Space>
+                      <Button onClick={stepBackHandler}>Back</Button>
                       <ResetButton>Reset</ResetButton>
                       <SubmitButton onClick={formik.submitForm} disabled={!formik.isValid}>CREATE JOB</SubmitButton> 
                     </Space>
                   </Col>
-                </Row>
-                <pre style={{ flex: 1 }}> 
-                  {JSON.stringify(formik.errors)}
-                  <FormikDebug />
-                </pre>
+                </Row> 
               </Form>
             )}
           />

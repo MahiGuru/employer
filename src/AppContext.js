@@ -7,6 +7,9 @@ const appReducer = (state, action) => {
     switch(action.type) {
         case 'JOB_LIST':
             return {...state, jobs: jobsData};
+        case 'CREATE_FORM':
+            console.log("INSIDE REDUCER CREATE_FORM : ", action.payload);
+            return {...state, newJob: action.payload}
         case 'FILTERS':
             return {...state, filters: action.payload}
         case 'FILTER_BTN_CLICK':

@@ -3,27 +3,27 @@ import { Badge, Card, Col, Row, Tag } from 'antd';
 import moment from 'moment';
 import React from 'react'; 
 
-function JobCard({job, clickTitleAction}) {
+function JobCardComponent({job, clickTitleAction}) {
     return (
         <div>
             <Badge.Ribbon text={`${job.status}`} color={job.status === 'Completed' ? 'green' : job.status === 'Hold' ? 'red' : 'blue'}>
                   <Card title={(
                       <Row justify='center'  align="middle">
                         <Col flex="50px"><img style={{marginRight: 30}} alt="img" height={36} src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" /></Col>
-                        <Col  flex="auto" onClick={() => {clickTitleAction()}}>{job.title}</Col>
+                        <Col  flex="auto" onClick={() => {clickTitleAction()}} align="start">{job.title}</Col>
                       </Row>
                     )}> 
                     <Row>
                         <Col flex={'50%'} className="label">Posted on</Col>
-                        <Col flex={3}>{moment(job.updated_at, 'DD/MM/YYYY').format("DD/MM/YYYY")}</Col>
+                        <Col flex={3} align="start">{moment(job.updated_at, 'DD/MM/YYYY').format("DD/MM/YYYY")}</Col>
                     </Row>
                     <Row>
                         <Col flex={'50%'} className="label">Experiece</Col>
-                        <Col flex={3}>{`${job.experience.min}${job.experience.max ? ' to '+ job.experience.max : '+'} ${job.experience.type}`}</Col>
+                        <Col flex={3} align="start">{`${job.experience.min}${job.experience.max ? ' to '+ job.experience.max : '+'} ${job.experience.type}`}</Col>
                     </Row>
                     <Row>
                         <Col flex={'50%'} className="label">Interested Recruiters</Col>
-                        <Col flex={3}>
+                        <Col flex={3} align="start">
                             <Tag color={job.recruiters.applied ? "processing": 'magenta'}>
                                 {job.recruiters.applied ? job.recruiters.applied : 0}
                             </Tag>
@@ -31,14 +31,14 @@ function JobCard({job, clickTitleAction}) {
                     </Row>
                     <Row>
                         <Col flex={'50%'} className="label">Assigned Interviewers</Col>
-                        <Col flex={3}>
+                        <Col flex={3} align="start">
                             <Tag color={"green"}>
                               {job.interviewer?.ShrotList}
                           </Tag>
                         </Col>
                     </Row>  
                     <Row justify='center' align='end' style={styles.cardFooter}>
-                        <Col flex={2} style={styles.daysLabel}>
+                        <Col flex={2} style={styles.daysLabel} align="start">
                             {moment(job.updated_at, 'DD/MM/YYYY').fromNow()}    
                         </Col>
                         <Col flex={"auto"} align={'end'}>
@@ -61,4 +61,4 @@ export const styles = {
 }
 
 
-export default JobCard;
+export default JobCardComponent;

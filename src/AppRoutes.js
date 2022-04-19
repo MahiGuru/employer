@@ -1,13 +1,14 @@
 import React from 'react';
-import { Navigate, Outlet, useRoutes } from 'react-router-dom'; 
-import JobDetails from './features/employers/jobs/JobDetails'; 
-import JobsList from './features/employers/jobs/JobsList';
-import PostJob from './features/employers/jobs/CreateJob';  
-import Nomatch from './Nomatch';
-import SuccessJob from './features/employers/jobs/components/SuccessJob'; 
-import MasterLayout from './layouts/MasterLayout';
-import Recruiter from './features/employers/recruiters/RecruiterPage';
+import { Navigate, Outlet, useRoutes } from 'react-router-dom';  
+import Nomatch from './Nomatch'; 
+import MasterLayout from './layouts/MasterLayout';  
+import PostJob from './features/employers/jobs/CreateJobs/CreateJob'; 
+import JobDetails from './features/employers/jobs/jobDetail/JobDetails';
+import JobsList from './features/employers/jobs/JobList/JobsList';
+import EmployerRecruiters from './features/employers/recruiters/RecruiterPage';
 import Interviewer from './features/employers/interviewers/InterviewerPage';
+
+
 function AppRoutes(props) {  
     const appRoutes = [{
         path: "/employer",
@@ -19,14 +20,14 @@ function AppRoutes(props) {
             children : [
                 { path: '',   element: <Navigate to='list' />},
                 { path: "list", element: <JobsList /> },        
-                { path: "create", element: <PostJob /> },        
-                { path: "success", element: <SuccessJob /> },        
-                { path: "details/:id", element: <JobDetails /> },        
+                { path: "create", element: <PostJob /> },             
+                { path: "details/:id", element: <JobDetails /> },  
+                { path: "*", element: <Nomatch /> },      
             ]
           },
           {
             path: "recruiters",
-            element: <Recruiter />,
+            element: <EmployerRecruiters />,
           },
           {
               path: "interviewers",
