@@ -6,7 +6,7 @@ import PostJob from './features/employers/jobs/CreateJobs/CreateJob';
 import JobDetails from './features/employers/jobs/jobDetail/JobDetails';
 import JobsList from './features/employers/jobs/JobList/JobsList';
 import EmployerRecruiters from './features/employers/recruiters/RecruiterPage';
-import Interviewer from './features/employers/interviewers/InterviewerPage';
+import EmployerInterviewer from './features/employers/interviewers/InterviewerPage';
 
 
 function AppRoutes(props) {  
@@ -31,7 +31,7 @@ function AppRoutes(props) {
           },
           {
               path: "interviewers",
-              element: <Interviewer />,
+              element: <EmployerInterviewer />,
           },
         ],
     },

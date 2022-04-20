@@ -18,7 +18,7 @@ function HeaderComponent(props) {
                     <Title level={3}>  Skillers </Title> 
                 </Col>
                 <Col span={12} flex="auto" style={{display:'flex', justifyContent: 'center', alignItems: 'center'}}>
-                    <Row  gutter={8} style={{flex: 'auto', textAlign:'center'}}>
+                    <Row  gutter={16} style={{flex: 'auto', textAlign:'center'}}>
                         <Col  flex="auto" className={{'active': /jobs/.test(pathname) ? true: false}}>
                             <Link to="/employer/jobs/list">My Jobs</Link>
                         </Col> 
