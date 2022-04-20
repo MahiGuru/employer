@@ -30,8 +30,7 @@ const EmployerInterviewer = () => {
             r[key] = r[key] || [];
             r[key].push(a);
             return r;
-        }, Object.create(null));
-        console.log(result);
+        }, Object.create(null)); 
         setData({ ...result });
     }, []);
 
@@ -48,57 +47,56 @@ const EmployerInterviewer = () => {
                 <Card title="">
                     <Title>Applied Interviewers</Title>
                     {
-                        Object.keys(data).map((item, index) => {
-                            console.log(item, index, data[item]);
+                        Object.keys(data).map((item, index) => { 
                             return (
-                                <>
-                                <Title level={4} type="danger" style={{marginTop:20, marginBottom:20}}>{item}</Title>
-                                <Row gutter={[16, 16]} key={item}>
-                                {
-                                    data[item].map(interviewer => (
-                                        <Col span={6} key={interviewer.name}>
-                                            <Card
-                                                hoverable
-                                                cover={(
-                                                    <Row justify='start' align='start' style={{ padding: 10 }}>
-                                                        <img alt="example" src="https://joeschmoe.io/api/v1/jai" style={{ height: 120 }} />
-                                                        <Col flex={2} align="middle" style={{ alignSelf: 'center' }}>
-                                                            <Popconfirm placement="top" title={'Are you sure you want to hire this interviewer?'} onConfirm={() => { message.info('Clicked on Yes.'); }} okText="Yes" cancelText="No">
-                                                                <Button type="primary" shape="round" style={{ margin: 10 }} icon={<CheckOutlined />} onClick={() => { }}>
-                                                                    Hire
-                                                                </Button>
-                                                            </Popconfirm>
-                                                        </Col>
-                                                    </Row>
-                                                )}
-                                            >
-                                                <Meta title={
-                                                    <>
-                                                        <Title level={4} style={{ margin: 0 }}>{interviewer.name}</Title>
-                                                        <Text type="success">{interviewer.experience}</Text>
-                                                        <p><Text code>{interviewer.current_job_title}</Text></p>
-                                                    </>
-                                                } description={(
-                                                    <>
-
-                                                        <Row gutter={[16, 16]}>
-                                                            <Col span={24}>
-                                                                <Text strong>Applied for Position:</Text>
-                                                                <Text>{interviewer.job.title}</Text>
-                                                            </Col>
-                                                            <Col span={24} flex={1}>
-                                                                <Text strong>Requested at: </Text>
-                                                                <Text> {date.getDateWithFormat()}</Text>
+                                <div key={`${item}-${index}`}>
+                                    <Title level={4} type="danger" style={{marginTop:20, marginBottom:20}}>{item}</Title>
+                                    <Row gutter={[16, 16]} key={item}>
+                                    {
+                                        data[item].map(interviewer => (
+                                            <Col span={6} key={interviewer.name}>
+                                                <Card
+                                                    hoverable
+                                                    cover={(
+                                                        <Row justify='start' align='start' style={{ padding: 10 }}>
+                                                            <img alt="example" src="https://joeschmoe.io/api/v1/jai" style={{ height: 120 }} />
+                                                            <Col flex={2} align="middle" style={{ alignSelf: 'center' }}>
+                                                                <Popconfirm placement="top" title={'Are you sure you want to hire this interviewer?'} onConfirm={() => { message.info('Clicked on Yes.'); }} okText="Yes" cancelText="No">
+                                                                    <Button type="primary" shape="round" style={{ margin: 10 }} icon={<CheckOutlined />} onClick={() => { }}>
+                                                                        Hire
+                                                                    </Button>
+                                                                </Popconfirm>
                                                             </Col>
                                                         </Row>
-                                                    </>
-                                                )} />
-                                            </Card>
-                                        </Col>
-                                    ))
-                                }
-                            </Row> 
-                            </>
+                                                    )}
+                                                >
+                                                    <Meta title={
+                                                        <>
+                                                            <Title level={4} style={{ margin: 0 }}>{interviewer.name}</Title>
+                                                            <Text type="success">{interviewer.experience}</Text>
+                                                            <p><Text code>{interviewer.current_job_title}</Text></p>
+                                                        </>
+                                                    } description={(
+                                                        <>
+
+                                                            <Row gutter={[16, 16]}>
+                                                                <Col span={24}>
+                                                                    <Text strong>Applied for Position:</Text>
+                                                                    <Text>{interviewer.job.title}</Text>
+                                                                </Col>
+                                                                <Col span={24} flex={1}>
+                                                                    <Text strong>Requested at: </Text>
+                                                                    <Text> {date.getDateWithFormat()}</Text>
+                                                                </Col>
+                                                            </Row>
+                                                        </>
+                                                    )} />
+                                                </Card>
+                                            </Col>
+                                        ))
+                                    }
+                                    </Row> 
+                                </div>
                         )
                         })
                     }
