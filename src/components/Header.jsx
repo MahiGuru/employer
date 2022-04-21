@@ -22,10 +22,10 @@ function HeaderComponent(props) {
                         <Col  flex="auto" className={{'active': /jobs/.test(pathname) ? true: false}}>
                             <Link to="/employer/jobs/list">My Jobs</Link>
                         </Col> 
-                        <Col flex="auto" className={{'active': ['/employer/recruiters'].includes(pathname) ? true: false}}>
+                        <Col flex="auto" className={{'active': /recruiters/.test(pathname) ? true: false}}>
                             <Link to="/employer/recruiters" >Recruiters</Link>
                         </Col>
-                        <Col  flex="auto" className={{'active': ['/employer/interviewers'].includes(pathname) ? true: false}}>
+                        <Col  flex="auto" className={{'active': /interviewers/.test(pathname) ? true: false}}>
                             <Link to="/employer/interviewers">Interviewers</Link>
                         </Col>
                     </Row>

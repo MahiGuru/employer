@@ -1,11 +1,11 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 
-function ReadOnlyField({label, value, labelClass=styles.labelClass, valueClass= styles.valueClass, spanSize = 4, children}) {
+function ReadOnlyField({label, value, labelClass=styles.labelClass, valueClass= styles.valueClass,  labelSpan= 4, contentSpan= 4,  children}) {
     return (
-        <Row>
-            <Col span={spanSize} style={labelClass}>{label}</Col>
-            <Col flex="auto" align="start" justify='center' style={valueClass}>{value ? value : children}</Col>
+        <Row wrap={true}>
+            <Col span={labelSpan} style={labelClass}>{label}</Col>
+            <Col flex={1} align="start" justify='center' style={valueClass}>{value ? value : children}</Col>
         </Row>
     );
 }

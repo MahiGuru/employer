@@ -7,6 +7,7 @@ import JobDetails from './features/employers/jobs/jobDetail/JobDetails';
 import JobsList from './features/employers/jobs/JobList/JobsList';
 import EmployerRecruiters from './features/employers/recruiters/RecruiterPage';
 import EmployerInterviewer from './features/employers/interviewers/InterviewerPage';
+import EmployerInterviewerDetails from './features/employers/interviewers/InterviewerDetails';
 
 
 function AppRoutes(props) {  
@@ -25,14 +26,24 @@ function AppRoutes(props) {
                 { path: "*", element: <Nomatch /> },      
             ]
           },
-          {
-            path: "recruiters",
-            element: <EmployerRecruiters />,
-          },
-          {
-              path: "interviewers",
-              element: <EmployerInterviewer />,
-          },
+          { path: "recruiters", 
+            element: <Outlet />,
+            children : [
+                { path: '',   element: <Navigate to='list' />},
+                { path: "list", element: <EmployerRecruiters /> },        
+                { path: "details/:recruiterId", element: <JobDetails /> },  
+                { path: "*", element: <Nomatch /> },      
+            ]
+          }, 
+          { path: "interviewers", 
+            element: <Outlet />,
+            children : [
+                { path: '',   element: <Navigate to='list' />},
+                { path: "list", element: <EmployerInterviewer /> },        
+                { path: "details/:interviewerId", element: <EmployerInterviewerDetails /> },  
+                { path: "*", element: <Nomatch /> },      
+            ]
+          }
         ],
     },
   

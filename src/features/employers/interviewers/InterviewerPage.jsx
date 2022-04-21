@@ -4,6 +4,7 @@ import VirtualList from 'rc-virtual-list';
 import { CheckOutlined } from '@ant-design/icons';
 import { date } from '../../../utils/dateUtils';
 import { interviewersData } from './../../../utils/shared/dummy_data/interested_interviewers';
+import { useNavigate } from 'react-router-dom';
 const { Title, Paragraph, Text, Link } = Typography;
 
 
@@ -39,7 +40,7 @@ const EmployerInterviewer = () => {
         //   appendData();
         // }
     };
-
+    let navigate = useNavigate();
     return (
 
         <Row justify="center" style={{ margin: 20 }}>
@@ -59,8 +60,11 @@ const EmployerInterviewer = () => {
                                                     hoverable
                                                     cover={(
                                                         <Row justify='start' align='start' style={{ padding: 10 }}>
-                                                            <img alt="example" src="https://joeschmoe.io/api/v1/jai" style={{ height: 120 }} />
+                                                            <Col style={{textAlign:'center'}} flex={1}><img alt="example" src="https://joeschmoe.io/api/v1/jai" style={{ height: 120 }} /></Col>
                                                             <Col flex={2} align="middle" style={{ alignSelf: 'center' }}>
+                                                                <Button type="dashed" shape="round" style={{ margin: 10 }} icon={<CheckOutlined />} onClick={() => { navigate('/employer/interviewers/details/'+ interviewer.id) }}>
+                                                                    View Details
+                                                                </Button>
                                                                 <Popconfirm placement="top" title={'Are you sure you want to hire this interviewer?'} onConfirm={() => { message.info('Clicked on Yes.'); }} okText="Yes" cancelText="No">
                                                                     <Button type="primary" shape="round" style={{ margin: 10 }} icon={<CheckOutlined />} onClick={() => { }}>
                                                                         Hire
@@ -79,7 +83,7 @@ const EmployerInterviewer = () => {
                                                     } description={(
                                                         <>
 
-                                                            <Row gutter={[16, 16]}>
+                                                            <Row gutter={[8, 8]}>
                                                                 <Col span={24}>
                                                                     <Text strong>Applied for Position:</Text>
                                                                     <Text>{interviewer.job.title}</Text>
