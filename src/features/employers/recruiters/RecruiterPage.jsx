@@ -22,12 +22,10 @@ const EmployerRecruiters = () => {
               expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
               className="site-collapse-custom-collapse">
             <Panel header={<Title level={4}>Interested Recruiter Firms</Title>} key="1" className="site-collapse-custom-panel">
-              
               <EmployerRecruiterFirms ></EmployerRecruiterFirms>
             </Panel>
             <Panel header={<Title level={4}>Interested Recruiter Freelancers</Title>} key="2" className="site-collapse-custom-panel">
-              <Title level={4}>Interested Recruiter Freelancers</Title>
-              <EmployerRecruiterFreelancers></EmployerRecruiterFreelancers>
+               <EmployerRecruiterFreelancers></EmployerRecruiterFreelancers>
             </Panel> 
           </Collapse>
       </Col> 

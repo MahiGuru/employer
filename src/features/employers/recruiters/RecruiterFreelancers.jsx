@@ -4,6 +4,7 @@ import VirtualList from 'rc-virtual-list';
 import { CheckOutlined } from '@ant-design/icons';
 import { date } from '../../../utils/dateUtils';
 import { freelanceRecruitersData, recruiterFirmsData } from '../../../utils/shared/dummy_data/interested_recruiters';
+import { useNavigate } from 'react-router-dom';
 const { Title, Paragraph, Text, Link } = Typography;
 
 
@@ -22,6 +23,7 @@ const EmployerRecruiterFreelancers = () => {
       });
   };
 
+  let navigate = useNavigate();
   useEffect(() => { 
     const result = freelanceRecruitersData.reduce(function (r, a) {
         const key = a.job.title || 'others';
@@ -51,7 +53,14 @@ const EmployerRecruiterFreelancers = () => {
             renderItem={item => (
               <List.Item>
                 <List.Item.Meta
-                  avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+                  avatar={
+                    <Space direction='vertical' align='middle' style={{textAlign:'center'}}>
+                        <Avatar src="https://joeschmoe.io/api/v1/random"  style={{ height: 80, width: 80 }}/>
+                        <Button type="dashed" shape="round" icon={<CheckOutlined />} onClick={() => navigate('/employer/recruiters/details/'+ item.id)} >
+                          View Details
+                        </Button>
+                    </Space>
+                  }
                   title={<> {item.name} </> }
                   description={ 
                     <Space direction='vertical'>

@@ -4,6 +4,7 @@ import VirtualList from 'rc-virtual-list';
 import { CheckOutlined } from '@ant-design/icons';
 import { date } from '../../../utils/dateUtils';
 import { recruiterFirmsData } from '../../../utils/shared/dummy_data/interested_recruiters';
+import { useNavigate } from 'react-router-dom';
 const { Title, Paragraph, Text, Link } = Typography;
 
 
@@ -41,6 +42,8 @@ const EmployerRecruiterFirms = () => {
     // }
   };
 
+  let navigate = useNavigate();
+
   return ( 
     <Card title=""  >
       { 
@@ -55,7 +58,13 @@ const EmployerRecruiterFirms = () => {
                 <List.Item> 
                   {console.log("item ", item)}
                   <List.Item.Meta
-                    avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+                    avatar={
+                      <Space direction='vertical' align='middle' style={{textAlign:'center'}}>
+                        <Avatar src="https://joeschmoe.io/api/v1/random" style={{ height: 80, width: 80 }} />
+                        <Button type="dashed" shape="round" icon={<CheckOutlined />} onClick={() => navigate('/employer/recruiters/firm-details/'+ item.id)} >
+                          View Details
+                        </Button>
+                    </Space>}
                     title={<> {item?.firm?.name} </>}
                     description={
                       <Space direction='vertical'>

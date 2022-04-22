@@ -8,6 +8,8 @@ import JobsList from './features/employers/jobs/JobList/JobsList';
 import EmployerRecruiters from './features/employers/recruiters/RecruiterPage';
 import EmployerInterviewer from './features/employers/interviewers/InterviewerPage';
 import EmployerInterviewerDetails from './features/employers/interviewers/InterviewerDetails';
+import EmployerRecruiterFirmDetails from './features/employers/recruiters/RecruiterFirmDetails';
+import EmployerRecruiterFreelancerDetails from './features/employers/recruiters/RecruiterFreelancerDetails';
 
 
 function AppRoutes(props) {  
@@ -31,7 +33,8 @@ function AppRoutes(props) {
             children : [
                 { path: '',   element: <Navigate to='list' />},
                 { path: "list", element: <EmployerRecruiters /> },        
-                { path: "details/:recruiterId", element: <JobDetails /> },  
+                { path: "firm-details/:recruiterId", element: <EmployerRecruiterFirmDetails /> },  
+                { path: "details/:recruiterId", element: <EmployerRecruiterFreelancerDetails /> },  
                 { path: "*", element: <Nomatch /> },      
             ]
           }, 

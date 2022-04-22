@@ -1,5 +1,5 @@
 import { BranchesOutlined } from '@ant-design/icons/lib/icons';
-import { Col, Row } from 'antd';
+import { Col, Row, Space } from 'antd';
 import Title from 'antd/lib/typography/Title';
 import React, { useEffect } from 'react';
 import UserProfile from './UserProfile';
@@ -18,16 +18,18 @@ function HeaderComponent(props) {
                     <Title level={3}>  Skillers </Title> 
                 </Col>
                 <Col span={12} flex="auto" style={{display:'flex', justifyContent: 'center', alignItems: 'center'}}>
-                    <Row  gutter={16} style={{flex: 'auto', textAlign:'center'}}>
-                        <Col  flex="auto" className={{'active': /jobs/.test(pathname) ? true: false}}>
-                            <Link to="/employer/jobs/list">My Jobs</Link>
-                        </Col> 
-                        <Col flex="auto" className={{'active': /recruiters/.test(pathname) ? true: false}}>
-                            <Link to="/employer/recruiters" >Recruiters</Link>
-                        </Col>
-                        <Col  flex="auto" className={{'active': /interviewers/.test(pathname) ? true: false}}>
-                            <Link to="/employer/interviewers">Interviewers</Link>
-                        </Col>
+                    <Row  gutter={16} justify="middle">
+                        <Space align='center'  style={{justifyContent: 'center'}} size={[24, 24]}>
+                            <Col  flex="auto" className={{'active': /jobs/.test(pathname) ? true: false}}>
+                                <Link to="/employer/jobs/list">My Jobs</Link>
+                            </Col> 
+                            <Col flex="auto" className={{'active': /recruiters/.test(pathname) ? true: false}}>
+                                <Link to="/employer/recruiters" >Recruiters</Link>
+                            </Col>
+                            <Col  flex="auto" className={{'active': /interviewers/.test(pathname) ? true: false}}>
+                                <Link to="/employer/interviewers">Interviewers</Link>
+                            </Col>
+                        </Space>
                     </Row>
                      
                 </Col>
