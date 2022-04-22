@@ -1,5 +1,5 @@
 import { AppstoreOutlined, FilterOutlined } from '@ant-design/icons';
-import { Button, Col, List, Popover, Row, Select } from 'antd';
+import { Button, Col, List, Popover, Row, Select, Space } from 'antd';
 import moment from 'moment';
 import React, { useContext, useState, useEffect } from 'react';
 import { Outlet, useNavigate, useParams } from "react-router-dom";
@@ -96,8 +96,7 @@ function JobsList() {
       <h2>{params.jobId}</h2>
       <Outlet /> 
        
-      <Row justify="center">
-        <Col span={20}>
+       
         <Row>
           <Col flex="100px">
             <Popover placement="bottomLeft" title={'Search'} content={<FilterJobs onStatusChange={onStatusChange} onFilterBtnClick={onFilterBtnClick} />} trigger="click">
@@ -115,10 +114,12 @@ function JobsList() {
               </Select>
           </Col>
           <Col flex="auto" align="end">
-              <AppstoreOutlined /> | 
-              <Button htmlType="button" onClick={() => navigate('/employer/jobs/create')}>
-                Create Job
-              </Button>
+            <Space size={[10, 10]}>
+                <AppstoreOutlined /> | 
+                <Button htmlType="button" onClick={() => navigate('/employer/jobs/create')}>
+                  Create Job
+                </Button>
+              </Space>
           </Col>
         </Row> <br /> 
          
@@ -135,9 +136,7 @@ function JobsList() {
                  <JobCardComponent job={item} clickTitleAction={() => navigate(`/employer/jobs/details/${item.id}`)}/>
               </List.Item>
             )}
-          />
-        </Col>
-      </Row>
+          /> 
     </>
   );
 }

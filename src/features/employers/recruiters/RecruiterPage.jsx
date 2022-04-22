@@ -13,23 +13,19 @@ const ContainerHeight = 400;
 const EmployerRecruiters = () => { 
    
 
-  return (
-    <Row justify="center" style={{ margin: 20 }}>
-        <Col span={16}>
-          <Collapse 
-              bordered={false}
-              defaultActiveKey={['2']}
-              expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
-              className="site-collapse-custom-collapse">
-            <Panel header={<Title level={4}>Interested Recruiter Firms</Title>} key="1" className="site-collapse-custom-panel">
-              <EmployerRecruiterFirms ></EmployerRecruiterFirms>
-            </Panel>
-            <Panel header={<Title level={4}>Interested Recruiter Freelancers</Title>} key="2" className="site-collapse-custom-panel">
-               <EmployerRecruiterFreelancers></EmployerRecruiterFreelancers>
-            </Panel> 
-          </Collapse>
-      </Col> 
-    </Row>
+  return ( 
+    <Collapse 
+        bordered={false}
+        defaultActiveKey={['2']}
+        expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
+        className="site-collapse-custom-collapse">
+      <Panel header={<Title level={4}>Interested Recruiter Firms</Title>} key="1" className="site-collapse-custom-panel">
+        <EmployerRecruiterFirms ></EmployerRecruiterFirms>
+      </Panel>
+      <Panel header={<Title level={4}>Interested Recruiter Freelancers</Title>} key="2" className="site-collapse-custom-panel">
+          <EmployerRecruiterFreelancers></EmployerRecruiterFreelancers>
+      </Panel> 
+    </Collapse> 
   );
 };
 

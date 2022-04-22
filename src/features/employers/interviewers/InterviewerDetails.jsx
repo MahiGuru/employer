@@ -40,9 +40,7 @@ const EmployerInterviewerDetails = () => {
         setInterviewer(result);
     }, []);
     return (
-
-        <Row justify="center" style={{ margin: 20 }}>
-            <Col span={16} align="start">
+ 
                 <Card title={
                     <Space>
                         <Button type="dashed" shape="round" icon={<ArrowLeftOutlined />} onClick={() => {navigate(-1)}} /> 
@@ -76,9 +74,7 @@ const EmployerInterviewerDetails = () => {
                             </Space> 
                     ) : null}
 
-                </Card>
-            </Col>
-        </Row>
+                </Card> 
     );
 };
 

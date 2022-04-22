@@ -49,27 +49,22 @@ const PostJob = () => {
 
   console.log("postJOB", current, jobData);
   return (
-    <>
-      <Row justify="center" style={{ margin: 20 }}>
-        <Col span={16}>
-          <Title level={2}>Create JOB</Title>
-          <Row>
-            <Col span={4}>
-              <Steps current={current} direction="vertical" size="small" align={'center'} style={{padding:20, background:'#f5f9ff'}}>
-                <Step title="Job Details" icon={<UserOutlined />} />
-                <Step title="Job Description" icon={<SolutionOutlined />} />
-                <Step title="Talenter Options" icon={<SmileOutlined />} />
-              </Steps>
-            </Col>
-            <Col span={20}>
-              <Card bordered={false}>
-                {createJobsForm(current)}
-              </Card>
-            </Col>
-          </Row>
-
+    <> 
+      <Title level={2}>Create JOB</Title>
+      <Row>
+        <Col span={4}>
+          <Steps current={current} direction="vertical" size="small" align={'center'} style={{padding:20, background:'#f5f9ff'}}>
+            <Step title="Job Details" icon={<UserOutlined />} />
+            <Step title="Job Description" icon={<SolutionOutlined />} />
+            <Step title="Talenter Options" icon={<SmileOutlined />} />
+          </Steps>
         </Col>
-      </Row>
+        <Col span={20}>
+          <Card bordered={false}>
+            {createJobsForm(current)}
+          </Card>
+        </Col>
+      </Row> 
     </>
   );
 };
