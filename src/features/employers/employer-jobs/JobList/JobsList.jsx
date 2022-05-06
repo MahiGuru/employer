@@ -6,14 +6,13 @@ import { Outlet, useNavigate, useParams } from "react-router-dom";
 import '../Jobs.css';
  
 import JobCardComponent from './JobCardComponent';  
-import FilterJobs from './../FilterJob/FilterJobs';
-import { AppContext } from './../../../../AppContext';
-import { getDateDifference } from './../../../../utils/dateUtils';
+import FilterJobs from '../FilterJob/FilterJobs';
+import { AppContext } from '../../../../AppContext'; 
 
 const {Option} = Select;
 
 function JobsList() {  
-  const {state, dispatch} = useContext(AppContext);
+  const {state} = useContext(AppContext);
  
   const sortList = () => {
     return state.jobs.sort((a, b) => { 

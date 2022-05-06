@@ -1,6 +1,6 @@
-import { Button, Checkbox, Form, Input, InputNumber, Select } from 'antd';
+import { Button, Form, Input, InputNumber, Select } from 'antd';
 import React, { useContext, useState } from 'react'; 
-import { AppContext } from './../../../../AppContext';
+import { AppContext } from '../../../../AppContext';
 const { Option } = Select;
 function FilterJobs({onStatusChange, onFilterBtnClick}) {
     const {state, dispatch} = useContext(AppContext);
@@ -18,10 +18,7 @@ function FilterJobs({onStatusChange, onFilterBtnClick}) {
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
-
-    const handleChange = (value) => {
-        console.log(`selected ${value}`);
-    }
+ 
     const status = [
         {id: 1, name: 'Completed'},
         {id: 2, name: 'Active'},

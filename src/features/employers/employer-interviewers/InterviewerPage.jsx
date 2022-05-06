@@ -1,31 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { List, message, Avatar, Card, Row, Col, Typography, Button, Space, Popconfirm } from 'antd';
-import VirtualList from 'rc-virtual-list';
+import { message, Card, Row, Col, Typography, Button, Popconfirm } from 'antd';
 import { CheckOutlined } from '@ant-design/icons';
 import { date } from '../../../utils/dateUtils';
 import { interviewersData } from './../../../utils/shared/dummy_data/interested_interviewers';
 import { useNavigate } from 'react-router-dom';
-const { Title, Paragraph, Text, Link } = Typography;
+const { Title, Text } = Typography;
 
 
-const fakeDataUrl =
-    'https://randomuser.me/api/?results=20&inc=name,gender,email,nat,picture&noinfo';
-const ContainerHeight = 400;
+// const fakeDataUrl =
+//     'https://randomuser.me/api/?results=20&inc=name,gender,email,nat,picture&noinfo';
 const { Meta } = Card;
 const EmployerInterviewer = () => {
     const [data, setData] = useState([]);
 
-    const appendData = () => {
-        fetch(fakeDataUrl)
-            .then(res => res.json())
-            .then(body => {
-                setData([...body.results]);
-                console.log(data, body.results);
-            });
-    };
 
-    useEffect(() => {
-        // appendData();
+    useEffect(() => { 
         const result = interviewersData.reduce(function (r, a) {
             const key = a.job.title || 'others';
             r[key] = r[key] || [];
@@ -35,11 +24,6 @@ const EmployerInterviewer = () => {
         setData({ ...result });
     }, []);
 
-    const onScroll = e => {
-        // if (e.target.scrollHeight - e.target.scrollTop === ContainerHeight) {
-        //   appendData();
-        // }
-    };
     let navigate = useNavigate();
     return (
             <Card title="">

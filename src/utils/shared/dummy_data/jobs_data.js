@@ -24,7 +24,9 @@ export const jobsData = [
         'Angular',
         'Css',
         'HTML5',
-        'Webpack'
+        'Webpack',
+        'PHP',
+        'PYTHON'
       ],
       responsibilities: [
         'Collaborating with our designers & developers to make high quality products on the web',
@@ -54,10 +56,13 @@ export const jobsData = [
       ],
       status: 'Completed',
       interviewer: {
+        id:3,
+        interested: 8,
         taken: 6,
         ShrotList: 2
       },
       recruiters: {
+        id:1,
         profiles: 12,
         interested: 5,
         comments: 'Extra 10k expecting for the first time'
@@ -72,7 +77,6 @@ export const jobsData = [
       updated_at: '21/01/2022',
       title: 'Associate Software Developer',
       status: 'Hold',
-      interviewer: null,
       experience:  {min: 3, max: 7, type:'Years'},
       location: 'Hyderabad',
       job_description_html: `
@@ -93,7 +97,9 @@ export const jobsData = [
         'Angular',
         'Css',
         'HTML5',
-        'Webpack'
+        'Webpack',
+        'JAVA',
+        'JVM'
       ],
       responsibilities: [
         `Collaborating with our designers & developers to make high quality products on the web`,
@@ -118,10 +124,17 @@ export const jobsData = [
       ],
       salary: {min: 10, max: 20, currency_type: '$', currency: 'Lakhs'},
       job_type: 'FullTime',
+      interviewer: {
+        id:3,
+        interested: 8,
+        taken: 6,
+        ShrotList: 2
+      },
       education: [
         "Bachelor's (Preferred)"
       ],
       recruiters: {
+        id:2,
         applied: 14,
         interested: 8,
         comments: 'Extra 10k expecting for the first time'
@@ -156,7 +169,9 @@ export const jobsData = [
         'Angular',
         'Css',
         'HTML5',
-        'Webpack'
+        'Webpack',
+        '.NET',
+        'C#'
       ],
       responsibilities: [
         `Collaborating with our designers & developers to make high quality products on the web`,
@@ -184,8 +199,14 @@ export const jobsData = [
       education: [
         "Bachelor's (Preferred)"
       ],
-      interviewer: null,
+      interviewer: {
+        id:1,
+        interested: 8,
+        taken: 6,
+        ShrotList: 2
+      },
       recruiters: {
+        id:1,
         applied: 6,
         interested: 2,
         comments: 'Extra 10k expecting for the first time'
@@ -221,7 +242,8 @@ export const jobsData = [
         'Angular',
         'Css',
         'HTML5',
-        'Webpack'
+        'Webpack',
+        'JAVA'
       ],
       responsibilities: [
         `Collaborating with our designers & developers to make high quality products on the web`,
@@ -250,10 +272,13 @@ export const jobsData = [
         "Bachelor's (Preferred)"
       ],
       interviewer: {
+        id:3,
+        interested: 8,
         taken: 6,
         ShrotList: 2
       },
       recruiters: {
+        id:3,
         applied: 0,
         interested: 5,
         comments: 'Extra 10k expecting for the first time'
@@ -289,7 +314,8 @@ export const jobsData = [
         'Angular',
         'Css',
         'HTML5',
-        'Webpack'
+        'Webpack',
+        'GO'
       ],
       responsibilities: [
         `Collaborating with our designers & developers to make high quality products on the web`,
@@ -318,10 +344,13 @@ export const jobsData = [
         "Bachelor's (Preferred)"
       ],
       interviewer: {
+        id:4,
+        interested: 8,
         taken: null,
         ShrotList: null
       },
       recruiters: {
+        id:3,
         applied: 4,
         interested: 5,
         comments: 'Extra 10k expecting for the first time'
@@ -357,7 +386,8 @@ export const jobsData = [
         'Angular',
         'Css',
         'HTML5',
-        'Webpack'
+        'Webpack',
+        'JAVA'
       ],
       responsibilities: [
         `Collaborating with our designers & developers to make high quality products on the web`,
@@ -386,10 +416,13 @@ export const jobsData = [
         "Bachelor's (Preferred)"
       ],
       interviewer: {
+        id:4,
+        interested: 8,
         taken: 0,
         ShrotList: 2
       },
       recruiters: {
+        id:4,
         applied: 22,
         interested: 7,
         comments: 'Extra 10k expecting for the first time'
@@ -425,7 +458,8 @@ export const jobsData = [
         'Angular',
         'Css',
         'HTML5',
-        'Webpack'
+        'Webpack',
+        'PYTHON'
       ],
       responsibilities: [
         `Collaborating with our designers & developers to make high quality products on the web`,
@@ -454,10 +488,13 @@ export const jobsData = [
         "Bachelor's (Preferred)"
       ],
       interviewer: {
+        id:2,
+        interested: 8,
         taken: 2,
         ShrotList: 2
       },
       recruiters: {
+        id:4,
         applied: 2,
         interested: 1,
         comments: 'Extra 10k expecting for the first time'
@@ -493,7 +530,9 @@ export const jobsData = [
         'Angular',
         'Css',
         'HTML5',
-        'Webpack'
+        'Webpack',
+        'JAVA',
+        'PHP'
       ],
       responsibilities: [
         `Collaborating with our designers & developers to make high quality products on the web`,
@@ -522,10 +561,13 @@ export const jobsData = [
         "Bachelor's (Preferred)"
       ],
       interviewer: {
+        id:1,
+        interested: 8,
         taken: 16,
         ShrotList: 2
       },
       recruiters: {
+        id:5,
         applied: 1,
         interested: 5,
         comments: 'Extra 10k expecting for the first time'
@@ -590,10 +632,13 @@ export const jobsData = [
         "Bachelor's (Preferred)"
       ],
       interviewer: {
+        id:1,
+        interested: 8,
         taken: 16,
         ShrotList: 2
       },
       recruiters: {
+        id:5,
         applied: 1,
         interested: 5,
         comments: 'Extra 10k expecting for the first time'
@@ -658,10 +703,13 @@ export const jobsData = [
       ],
       status: 'Active',
       interviewer: {
+        id:5,
+        interested: 8,
         taken: 16,
         ShrotList: 2
       },
       recruiters: {
+        id:6,
         applied: 1,
         interested: 5,
         comments: 'Extra 10k expecting for the first time'
@@ -727,10 +775,13 @@ export const jobsData = [
       ],
       status: 'Active',
       interviewer: {
+        id:6,
+        interested: 8,
         taken: 16,
         ShrotList: 2
       },
       recruiters: {
+        id:1,
         applied: 1,
         interested: 5,
         comments: 'Extra 10k expecting for the first time'
@@ -766,7 +817,8 @@ export const jobsData = [
         'Angular',
         'Css',
         'HTML5',
-        'Webpack'
+        'Webpack',
+        'JAVA'
       ],
       responsibilities: [
         `Collaborating with our designers & developers to make high quality products on the web`,
@@ -795,10 +847,13 @@ export const jobsData = [
         "Bachelor's (Preferred)"
       ],
       interviewer: {
+        id:6,
+        interested: 8,
         taken: 16,
         ShrotList: 2
       },
       recruiters: {
+        id:2,
         applied: 1,
         interested: 5,
         comments: 'Extra 10k expecting for the first time'
@@ -834,7 +889,8 @@ export const jobsData = [
         'Angular',
         'Css',
         'HTML5',
-        'Webpack'
+        'Webpack',
+        'JAVA'
       ],
       responsibilities: [
         `Collaborating with our designers & developers to make high quality products on the web`,
@@ -863,10 +919,13 @@ export const jobsData = [
         "Bachelor's (Preferred)"
       ],
       interviewer: {
+        id:4,
+        interested: 8,
         taken: 16,
         ShrotList: 2
       },
       recruiters: {
+        id:4,
         applied: 1,
         interested: 5,
         comments: 'Extra 10k expecting for the first time'
@@ -902,7 +961,8 @@ export const jobsData = [
         'Angular',
         'Css',
         'HTML5',
-        'Webpack'
+        'Webpack',
+        'PHP'
       ],
       responsibilities: [
         `Collaborating with our designers & developers to make high quality products on the web`,
@@ -931,10 +991,13 @@ export const jobsData = [
         "Bachelor's (Preferred)"
       ],
       interviewer: {
+        id:2,
+        interested: 8,
         taken: 16,
         ShrotList: 2
       },
       recruiters: {
+        id:3,
         applied: 1,
         interested: 5,
         comments: 'Extra 10k expecting for the first time'
@@ -969,7 +1032,8 @@ export const jobsData = [
         'Angular',
         'Css',
         'HTML5',
-        'Webpack'
+        'Webpack',
+        'JAVA'
       ],
       responsibilities: [
         `Collaborating with our designers & developers to make high quality products on the web`,
@@ -999,10 +1063,13 @@ export const jobsData = [
       ],
       status: 'Active',
       interviewer: {
+        id:3,
+        interested: 8,
         taken: 16,
         ShrotList: 2
       },
       recruiters: {
+        id:5,
         applied: 1,
         interested: 5,
         comments: 'Extra 10k expecting for the first time'

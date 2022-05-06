@@ -2,14 +2,21 @@ import React from 'react';
 import { Navigate, Outlet, useRoutes } from 'react-router-dom';  
 import Nomatch from './Nomatch'; 
 import MasterLayout from './layouts/MasterLayout';  
-import PostJob from './features/employers/jobs/CreateJobs/CreateJob'; 
-import JobDetails from './features/employers/jobs/jobDetail/JobDetails';
-import JobsList from './features/employers/jobs/JobList/JobsList';
-import EmployerRecruiters from './features/employers/recruiters/RecruiterPage';
-import EmployerInterviewer from './features/employers/interviewers/InterviewerPage';
-import EmployerInterviewerDetails from './features/employers/interviewers/InterviewerDetails';
-import EmployerRecruiterFirmDetails from './features/employers/recruiters/RecruiterFirmDetails';
-import EmployerRecruiterFreelancerDetails from './features/employers/recruiters/RecruiterFreelancerDetails';
+import PostJob from './features/employers/employer-jobs/CreateJobs/CreateJob'; 
+import JobDetails from './features/employers/employer-jobs/jobDetail/JobDetails';
+import JobsList from './features/employers/employer-jobs/JobList/JobsList';
+import EmployerRecruiters from './features/employers/employer-recruiters/RecruiterList';
+import EmployerInterviewer from './features/employers/employer-interviewers/InterviewerPage';
+import EmployerInterviewerDetails from './features/employers/employer-interviewers/InterviewerDetails';
+import EmployerRecruiterFirmDetails from './features/employers/employer-recruiters/RecruiterFirmDetails';
+import EmployerRecruiterFreelancerDetails from './features/employers/employer-recruiters/RecruiterFreelancerDetails';
+import RecruiterLayout from './layouts/RecruiterLayout';
+import RecruiterJobs from './features/recruiters/Job/JobsList';
+import RecruiterInterviewerDetails from './features/recruiters/recruiter-interviewers/InterviewerDetails';
+import RecruiterInterviewer from './features/recruiters/recruiter-interviewers/InterviewerPage';
+import RecruiterJobDetails from './features/recruiters/Job/JobDetails'; 
+import RecruiterFirmDetails from './features/recruiters/RecruiterFirmDetails';
+import RecruiterFreelancerDetails from './features/recruiters/RecruiterFreelancerDetails';
 
 
 function AppRoutes(props) {  
@@ -31,8 +38,9 @@ function AppRoutes(props) {
           { path: "recruiters", 
             element: <Outlet />,
             children : [
-                { path: '',   element: <Navigate to='list' />},
-                { path: "list", element: <EmployerRecruiters /> },        
+                { path: '',   element: <Navigate to='list' />},                
+                { path: "list", element: <EmployerRecruiters /> },
+                { path: "job/:jobId", element: <EmployerRecruiters /> },
                 { path: "firm-details/:recruiterId", element: <EmployerRecruiterFirmDetails /> },  
                 { path: "details/:recruiterId", element: <EmployerRecruiterFreelancerDetails /> },  
                 { path: "*", element: <Nomatch /> },      
@@ -49,10 +57,39 @@ function AppRoutes(props) {
           }
         ],
     },
+    {
+      path: "/recruiters",
+      element: <RecruiterLayout />,
+      children: [
+        { path: '',   element: <Navigate to='jobs' />}, 
+        { path: "firm-details/:recruiterId", element: <RecruiterFirmDetails /> },  
+        { path: "details/:recruiterId", element: <RecruiterFreelancerDetails /> },  
+
+        { path: "jobs", 
+            element: <Outlet />,
+            children : [
+                { path: '',   element: <Navigate to='list' />},
+                { path: "list", element: <RecruiterJobs /> },                
+                { path: "details/:id", element: <RecruiterJobDetails /> },  
+                { path: "*", element: <Nomatch /> },      
+            ]
+        }, 
+        
+        { path: "interviewers", 
+          element: <Outlet />,
+          children : [
+              { path: '',   element: <Navigate to='list' />},
+              { path: "list", element: <RecruiterInterviewer /> },        
+              { path: "details/:interviewerId", element: <RecruiterInterviewerDetails /> },  
+              { path: "*", element: <Nomatch /> },      
+          ]
+        }        
+      ]
+    },
   
     {
       path: "",
-      element: <Navigate to="/employer" />
+      element: <Navigate to="/recruiters" />
     },
     { path: "*", element: <Nomatch /> },
   ]

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik } from 'formik';
 import { Form, Row, Col, Space, Typography, Button } from 'antd';
-import { FormikDebug, FormItem, Input, InputNumber, Radio, ResetButton, Select, SubmitButton } from 'formik-antd';
+import { FormItem, Input, InputNumber, Radio, ResetButton, Select, SubmitButton } from 'formik-antd';
 import * as Yup from 'yup';
 import HtmlEditor from '../../../../components/HtmlEditor';
 
@@ -40,8 +40,8 @@ function JobDescription({submitHandler, stepBackHandler}) {
             validateOnBlur={true}
             validate={values => { 
               return;
-            }}
-            render={(formik) => (
+            }}>
+              {(formik) => (
               <Form className='job-details-form' labelCol={{ lg: 5 }} wrapperCol={{ lg: 20 }} layout='vertical' style={{ textAlign: 'left' }}>
                 <FormItem name="objectives" label="Objectives" required={true}>
                   <Input.TextArea  rows={4} name="objectives" placeholder="Objectives" />
@@ -105,7 +105,8 @@ function JobDescription({submitHandler, stepBackHandler}) {
                 </Row> 
               </Form>
             )}
-          />
+
+            </Formik> 
         </div>
       );
 }

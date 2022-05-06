@@ -1,6 +1,6 @@
 export const freelanceRecruitersData = [
   {  
-      id: 101,
+      id: 1,
       freelancer: true,
       about: `I'm a Recruiter with 8 years of experience in full-cycle recruiting.
       I have worked with well-known companies, startups and have placed candidates in different countries.
@@ -22,8 +22,8 @@ export const freelanceRecruitersData = [
       price_per_resource: 'On-demand',
       avalable_profiles: 10,
       job: {
-        id: 1,
-        title: 'Full Stack Developer',
+        id: 3,
+        title: 'Senior QA Test engineer',
         status: 'Active',
         experience:  {min: 3, max: 7, type:'Years'}, 
         location: 'Hyderabad',
@@ -32,7 +32,7 @@ export const freelanceRecruitersData = [
       modified_at: '20/04/2022',   
   },
   {  
-      id: 102,
+      id: 2,
       freelancer: true,
       about: `I'm a Recruiter with 10 years of experience in full-cycle recruiting.
       I have worked with well-known companies, startups and have placed candidates in different countries.
@@ -52,8 +52,8 @@ export const freelanceRecruitersData = [
       price_per_resource: 'On-demand',
       avalable_profiles: 10,
       job: {
-        id: 1,
-        title: 'Full Stack Developer',
+        id: 4,
+        title: 'Technical Lead Developer',
         status: 'Active',
         experience:  {min: 3, max: 7, type:'Years'}, 
         location: 'Hyderabad',
@@ -62,7 +62,7 @@ export const freelanceRecruitersData = [
       modified_at: '20/04/2022',   
   },
   {  
-      id: 103,
+      id: 3,
       freelancer: true,
       about: `I'm a Recruiter with 5 years of experience in full-cycle recruiting.
       I have worked with well-known companies, startups and have placed candidates in different countries.
@@ -79,8 +79,8 @@ export const freelanceRecruitersData = [
       price_per_resource: 'On-demand',
       avalable_profiles: 4,
       job: {
-        id: 1,
-        title: 'Full Stack Developer',
+        id: 5,
+        title: 'Technical Manager',
         status: 'Active',
         experience:  {min: 3, max: 7, type:'Years'}, 
         location: 'Hyderabad',
@@ -108,8 +108,8 @@ export const recruiterFirmsData = [
       price_per_resource: 'On-demand',
       avalable_profiles: 10,
       job: {
-        id: 1,
-        title: 'Full Stack Developer',
+        id: 3,
+        title: 'Senior QA Test engineer',
         status: 'Active',
         experience:  {min: 3, max: 7, type:'Years'}, 
         location: 'Hyderabad', 
@@ -138,8 +138,8 @@ export const recruiterFirmsData = [
       related_expereince: '8 years',
       price_per_resource: 'on-demand',
       job: {
-        id: 2,
-        title: 'Associate Software Developer',
+        id: 3,
+        title: 'Senior QA Test engineer',
         status: 'Active',
         experience:  {min: 3, max: 7, type:'Years'},
         location: 'Hyderabad', 

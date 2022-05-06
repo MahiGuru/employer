@@ -1,44 +1,40 @@
 import { BranchesOutlined } from '@ant-design/icons/lib/icons';
 import { Col, Row, Space } from 'antd';
 import Title from 'antd/lib/typography/Title';
-import React from 'react';
-import UserProfile from './UserProfile';
+import React from 'react';  
 import {
     Link, useLocation, useNavigate
   } from "react-router-dom";
+import RecruiterUserProfile from './RecruiterUserProfile';
   
-function HeaderComponent(props) {  
-    
+function RecruiterHeaderComponent() {  
     let navigate = useNavigate();
     const { pathname } = useLocation(); 
     console.log("path name ", pathname);
     return (
         <>
             <Row style={{...styles.borderBottom, ...styles.background}}>
-                <Col span={6} style={styles.flex} onClick={() => navigate('/employer/jobs/list')}> 
+                <Col span={6} style={{...styles.flex, ...styles.cursor}} onClick={() => navigate('/recruiters/jobs')}> 
                     <BranchesOutlined style={{ color: "#3aafa9", fontSize: 36, marginRight: 10 }} /> 
                     <Title level={3}>  Skillers 
-                        <div><Title level={5}> Employer</Title></div>
+                        <div><Title level={5}> Recruiters</Title></div>
                     </Title> 
                 </Col>
                 <Col span={12} flex="auto" style={{display:'flex', justifyContent: 'center', alignItems: 'center'}}>
                     <Row  gutter={16} justify="middle">
                         <Space align='center'  style={{justifyContent: 'center'}} size={[24, 24]}>
                             <Col  flex="auto" className={{'active': /jobs/.test(pathname) ? true: false}}>
-                                <Link to="/employer/jobs/list">My Jobs</Link>
-                            </Col> 
-                            <Col flex="auto" className={{'active': /recruiters/.test(pathname) ? true: false}}>
-                                <Link to="/employer/recruiters" >Recruiters</Link>
-                            </Col>
+                                <Link to="/recruiters/jobs">Jobs</Link>
+                            </Col>  
                             <Col  flex="auto" className={{'active': /interviewers/.test(pathname) ? true: false}}>
-                                <Link to="/employer/interviewers">Interviewers</Link>
+                                <Link to="/recruiters/interviewers">Interviewers</Link>
                             </Col>
                         </Space>
                     </Row>
                      
                 </Col>
                 <Col span={6} style={styles.profile}> 
-                    <UserProfile />
+                    <RecruiterUserProfile />
                 </Col>
             </Row>
         </>
@@ -50,6 +46,9 @@ const styles = {
         flexDirection: 'row',
         padding:'20px',
         paddingBottom: 0
+    },
+    cursor: {
+        cursor: 'pointer'
     },
     background: {
         background: '#FFF',
@@ -69,4 +68,4 @@ const styles = {
     }
 
 }
-export default HeaderComponent;
+export default RecruiterHeaderComponent;

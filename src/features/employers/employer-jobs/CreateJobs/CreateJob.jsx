@@ -1,5 +1,5 @@
 import { UserOutlined, SolutionOutlined, SmileOutlined } from '@ant-design/icons/lib/icons';
-import { Card, Col, PageHeader, Row, Steps } from 'antd';
+import { Card, Col, Row, Steps } from 'antd';
 import Title from 'antd/lib/typography/Title';
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +12,7 @@ import TalenterOptionInfo from './TalenterOptionsInfo';
 
 const PostJob = () => {
   const { Step } = Steps;
-  const {state, dispatch} = useContext(AppContext);
+  const {dispatch} = useContext(AppContext);
   const [current, setCurrent] = React.useState(0);
   const [jobData, setJobData] = React.useState({});
   let navigate = useNavigate();

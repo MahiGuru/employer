@@ -2,8 +2,10 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { Badge, Card, Col, Row, Tag } from 'antd';
 import moment from 'moment';
 import React from 'react'; 
+import { useNavigate } from 'react-router-dom';
 
 function JobCardComponent({job, clickTitleAction}) {
+    let navigate = useNavigate();
     return (
         <div>
             <Badge.Ribbon text={`${job.status}`} color={job.status === 'Completed' ? 'green' : job.status === 'Hold' ? 'red' : 'blue'}>
@@ -23,7 +25,7 @@ function JobCardComponent({job, clickTitleAction}) {
                     </Row>
                     <Row>
                         <Col flex={'50%'} className="label">Interested Recruiters</Col>
-                        <Col flex={3} align="start">
+                        <Col flex={3} align="start" onClick={() => navigate(`/employer/recruiters/job/${job.id}`)}>
                             <Tag color={job.recruiters.applied ? "processing": 'magenta'}>
                                 {job.recruiters.applied ? job.recruiters.applied : 0}
                             </Tag>

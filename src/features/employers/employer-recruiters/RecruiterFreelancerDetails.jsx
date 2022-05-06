@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { message, Card, Row, Col, Typography, Button, Popconfirm, Space } from 'antd';
+import { message, Card, Button, Popconfirm, Space } from 'antd';
 import { ArrowLeftOutlined, CheckOutlined } from '@ant-design/icons';
 import { useNavigate, useParams } from 'react-router-dom';
 import ReadOnlyField from '../../../utils/shared/components/ReadOnlyField';
 import { freelanceRecruitersData } from '../../../utils/shared/dummy_data/interested_recruiters';
-const { Title, Text } = Typography;
 
 
 
-const fakeDataUrl =
-    'https://randomuser.me/api/?results=20&inc=name,gender,email,nat,picture&noinfo';
-const { Meta } = Card;
+// const fakeDataUrl =
+//     'https://randomuser.me/api/?results=20&inc=name,gender,email,nat,picture&noinfo';
+// const { Meta } = Card;
 
 
 const EmployerRecruiterFreelancerDetails = () => {
@@ -19,14 +18,14 @@ const EmployerRecruiterFreelancerDetails = () => {
     let navigate = useNavigate();
     const [freelanceRecruiter, setFreelanceRecruiter] = useState([]);
 
-    const appendData = () => {
-        fetch(fakeDataUrl)
-            .then(res => res.json())
-            .then(body => {
-                setFreelanceRecruiter([...body.results]);
-                console.log(freelanceRecruiter, body.results);
-            });
-    };
+    // const appendData = () => {
+    //     fetch(fakeDataUrl)
+    //         .then(res => res.json())
+    //         .then(body => {
+    //             setFreelanceRecruiter([...body.results]);
+    //             console.log(freelanceRecruiter, body.results);
+    //         });
+    // };
 
     useEffect(() => {
         // appendData();
@@ -36,7 +35,7 @@ const EmployerRecruiterFreelancerDetails = () => {
         });
         console.log("result >>>> ", result);
         setFreelanceRecruiter(result);
-    }, []);
+    }, [recruiterId]);
     return (
 
         <Card title={

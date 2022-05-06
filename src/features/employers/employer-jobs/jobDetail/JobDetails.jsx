@@ -12,8 +12,8 @@ function JobDetails(props) {
 
   const { state } = useContext(AppContext); 
   useEffect(() => {
-    setSelectedJob(state.jobs.find((job) => job.id == id));
-    console.log(id, selectedJob?.responsibilities?.length)
+    setSelectedJob(state.jobs.find((job) => job.id === parseInt(id)));
+    console.log(selectedJob); 
   }, [selectedJob, id, state.jobs]);
 
 
@@ -35,7 +35,7 @@ function JobDetails(props) {
               <ReadOnlyField label="Must Have Skills" value={
                 <Row>
                   { selectedJob?.key_skills?.map(skill => (
-                      <Col span={2}>{skill}</Col>
+                      <Col span={2} key={skill}>{skill}</Col>
                     )) 
                   }
                 </Row>}  
@@ -63,7 +63,7 @@ function JobDetails(props) {
                   bordered
                   dataSource={selectedJob.required_skills}
                   renderItem={item => <List.Item>{item}</List.Item>}
-                />   
+                />
               </ReadOnlyField> 
               <ReadOnlyField label="Good to have skills" spanSize={24} >
                 <List
