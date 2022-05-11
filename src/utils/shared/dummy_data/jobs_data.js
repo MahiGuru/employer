@@ -49,6 +49,7 @@ export const jobsData = [
         `handling concurrency in database updates at scale`,
         `deep understanding of CAP theorem, and experience with large-scale databases`,
       ],
+      resource_pay: {min: 10, max: 20, currency_type: '$', currency: 'thousands'},
       salary: {min: 10, max: 20, currency_type: '$', currency: 'Lakhs'},
       job_type: 'FullTime',
       education: [
@@ -122,6 +123,7 @@ export const jobsData = [
         `handling concurrency in database updates at scale`,
         `deep understanding of CAP theorem, and experience with large-scale databases`,
       ],
+      resource_pay: {min: 10, max: 20, currency_type: '$', currency: 'thousands'},
       salary: {min: 10, max: 20, currency_type: '$', currency: 'Lakhs'},
       job_type: 'FullTime',
       interviewer: {
@@ -194,6 +196,7 @@ export const jobsData = [
         `handling concurrency in database updates at scale`,
         `deep understanding of CAP theorem, and experience with large-scale databases`,
       ],
+      resource_pay: {min: 10, max: 20, currency_type: '$', currency: 'thousands'},
       salary: {min: 4, max: 5, currency_type: '$', currency: 'Lakhs'},
       job_type: 'FullTime',
       education: [
@@ -266,6 +269,7 @@ export const jobsData = [
         `handling concurrency in database updates at scale`,
         `deep understanding of CAP theorem, and experience with large-scale databases`,
       ],
+      resource_pay: {min: 10, max: 20, currency_type: '$', currency: 'thousands'},
       salary: {min: 10, max: 20, currency_type: '$', currency: 'Lakhs'},
       job_type: 'FullTime',
       education: [
@@ -338,6 +342,7 @@ export const jobsData = [
         `handling concurrency in database updates at scale`,
         `deep understanding of CAP theorem, and experience with large-scale databases`,
       ],
+      resource_pay: {min: 10, max: 20, currency_type: '$', currency: 'thousands'},
       salary: {min: 10, max: 20, currency_type: '$', currency: 'Lakhs'},
       job_type: 'FullTime',
       education: [
@@ -410,6 +415,7 @@ export const jobsData = [
         `handling concurrency in database updates at scale`,
         `deep understanding of CAP theorem, and experience with large-scale databases`,
       ],
+      resource_pay: {min: 10, max: 20, currency_type: '$', currency: 'thousands'},
       salary: {min: 10, max: 20, currency_type: '$', currency: 'Lakhs'},
       job_type: 'FullTime',
       education: [
@@ -482,6 +488,7 @@ export const jobsData = [
         `handling concurrency in database updates at scale`,
         `deep understanding of CAP theorem, and experience with large-scale databases`,
       ],
+      resource_pay: {min: 10, max: 20, currency_type: '$', currency: 'thousands'},
       salary: {min: 10, max: 20, currency_type: '$', currency: 'Lakhs'},
       job_type: 'FullTime',
       education: [
@@ -555,6 +562,7 @@ export const jobsData = [
         `handling concurrency in database updates at scale`,
         `deep understanding of CAP theorem, and experience with large-scale databases`,
       ],
+      resource_pay: {min: 10, max: 20, currency_type: '$', currency: 'thousands'},
       salary: {min: 10, max: 20, currency_type: '$', currency: 'Lakhs'},
       job_type: 'FullTime',
       education: [
@@ -626,6 +634,7 @@ export const jobsData = [
         `handling concurrency in database updates at scale`,
         `deep understanding of CAP theorem, and experience with large-scale databases`,
       ],
+      resource_pay: {min: 10, max: 20, currency_type: '$', currency: 'thousands'},
       salary: {min: 10, max: 20, currency_type: '$', currency: 'Lakhs'},
       job_type: 'FullTime',
       education: [
@@ -696,6 +705,7 @@ export const jobsData = [
         `handling concurrency in database updates at scale`,
         `deep understanding of CAP theorem, and experience with large-scale databases`,
       ],
+      resource_pay: {min: 10, max: 20, currency_type: '$', currency: 'thousands'},
       salary: {min: 10, max: 20, currency_type: '$', currency: 'Lakhs'},
       job_type: 'FullTime',
       education: [
@@ -768,6 +778,7 @@ export const jobsData = [
         `handling concurrency in database updates at scale`,
         `deep understanding of CAP theorem, and experience with large-scale databases`,
       ],
+      resource_pay: {min: 10, max: 20, currency_type: '$', currency: 'thousands'},
       salary: {min: 10, max: 20, currency_type: '$', currency: 'Lakhs'},
       job_type: 'FullTime',
       education: [
@@ -841,6 +852,7 @@ export const jobsData = [
         `handling concurrency in database updates at scale`,
         `deep understanding of CAP theorem, and experience with large-scale databases`,
       ],
+      resource_pay: {min: 10, max: 20, currency_type: '$', currency: 'thousands'},
       salary: {min: 10, max: 20, currency_type: '$', currency: 'Lakhs'},
       job_type: 'FullTime',
       education: [
@@ -913,6 +925,7 @@ export const jobsData = [
         `handling concurrency in database updates at scale`,
         `deep understanding of CAP theorem, and experience with large-scale databases`,
       ],
+      resource_pay: {min: 10, max: 20, currency_type: '$', currency: 'thousands'},
       salary: {min: 10, max: 20, currency_type: '$', currency: 'Lakhs'},
       job_type: 'FullTime',
       education: [
@@ -985,6 +998,7 @@ export const jobsData = [
         `handling concurrency in database updates at scale`,
         `deep understanding of CAP theorem, and experience with large-scale databases`,
       ],
+      resource_pay: {min: 10, max: 20, currency_type: '$', currency: 'thousands'},
       salary: {min: 10, max: 20, currency_type: '$', currency: 'Lakhs'},
       job_type: 'FullTime',
       education: [
@@ -1056,6 +1070,7 @@ export const jobsData = [
         `handling concurrency in database updates at scale`,
         `deep understanding of CAP theorem, and experience with large-scale databases`,
       ],
+      resource_pay: {min: 10, max: 20, currency_type: '$', currency: 'thousands'},
       salary: {min: 10, max: 20, currency_type: '$', currency: 'Lakhs'},
       job_type: 'FullTime',
       education: [

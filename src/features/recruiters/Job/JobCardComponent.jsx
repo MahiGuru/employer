@@ -65,7 +65,7 @@ function JobCardComponent({job, clickTitleAction}) {
                   </Card>
                 </Badge.Ribbon>
                 
-                <RecruiterApplyForm modalVisible={modalVisible} setModalVisible={(e) => setModalVisible(e)}></RecruiterApplyForm>
+                <RecruiterApplyForm modalVisible={modalVisible} job={job} setModalVisible={(e) => setModalVisible(e)}></RecruiterApplyForm>
         </div>
     );
 }
