@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, {  } from 'react';
 import { Formik } from 'formik';
-import { Form, Row, Col, Button, Space, Typography, Modal } from 'antd';
-import { FormItem, Input, ResetButton, SubmitButton, InputNumber, Radio, FormikDebug } from 'formik-antd';
+import { Form, Space, Typography, Modal } from 'antd';
+import { FormItem, Input, InputNumber, Radio } from 'formik-antd';
 import * as Yup from 'yup';
-import HtmlEditor from '../../components/HtmlEditor';
 import ReadOnlyField from './../../utils/shared/components/ReadOnlyField';
 import './Recruiter.css';
 
 
-const { Text } = Typography;
+const { Text, Title } = Typography;
 
 const ApplyJobSchema = Yup.object().shape({
     recruiter_comments: Yup.string()
@@ -62,13 +61,13 @@ const RecruiterApplyForm = ({ modalVisible, setModalVisible, submitHandler, step
                     <Form className='job-details-form' labelCol={{ lg: 5 }} wrapperCol={{ lg: 20 }} layout='vertical' style={{ textAlign: 'left' }}>
 
                         <FormItem name="isCompensation" label="" required={true}>
-                            <div>Do you agree with given compensation by employer? (
+                            <Title level={5}>Do you agree with given compensation by employer? (
                                 <Space style={{}}>
                                     <ReadOnlyField labelRequired={false} valueClass={'padding-0'} value={job.salary?.min} /> -
                                     <ReadOnlyField labelRequired={false} valueClass={'padding-0'} value={job.salary?.max} />
                                     <ReadOnlyField labelRequired={false} value={job.salary?.currency} />
                                 </Space> )
-                            </div>
+                            </Title>
                             <Space style={{ display: 'flex', alignItems: 'center' }} >
                                 <Radio.Group name="isCompensation" size="true">
                                     <Radio.Button value={true}>Yes</Radio.Button>
@@ -96,13 +95,13 @@ const RecruiterApplyForm = ({ modalVisible, setModalVisible, submitHandler, step
                         ) : null}
 
                         <FormItem name="isResourcePaymentModify" label="" required={true}>
-                            <div>Do you agree with payment per resource from employer? (
+                            <Title level={5}>Do you agree with payment per resource from employer? (
                                 <Space style={{}}>
                                     <ReadOnlyField labelRequired={false} valueClass={'padding-0'} value={job?.resource_pay?.min} /> -
                                     <ReadOnlyField labelRequired={false} valueClass={'padding-0'} value={job?.resource_pay?.max} />
                                     <ReadOnlyField labelRequired={false} value={job.resource_pay?.currency} />
                                 </Space> )
-                            </div>
+                            </Title>
                             <Space style={{ display: 'flex', alignItems: 'center' }} >
                                 <Radio.Group name="isResourcePaymentModify" size="true">
                                     <Radio.Button value={true}>Yes</Radio.Button>
