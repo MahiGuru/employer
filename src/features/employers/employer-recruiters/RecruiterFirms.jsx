@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { List, message, Avatar, Card, Typography, Button, Space, Popconfirm, Empty } from 'antd';
-import { CheckOutlined } from '@ant-design/icons';
-import { recruiterFirmsData } from '../../../utils/shared/dummy_data/interested_recruiters';
+import { CheckOutlined } from '@ant-design/icons'; 
 import { useNavigate, useParams } from 'react-router-dom';
+import { recruiterFirmsData } from '../../../utils/shared/dummy_data/interested_recruiters';
 const { Text } = Typography;
 
 
@@ -27,7 +27,7 @@ const EmployerRecruiterFirms = ({jobId}) => {
     // appendData(); 
     if(jobId) {
       recruitersData = recruiterFirmsData.filter(firms =>  firms.job.id === parseInt(jobId));
-    }
+    }  
     console.log(recruitersData);
     const result = recruitersData.reduce(function (r, a) {
         const key = a.job.title || 'others';

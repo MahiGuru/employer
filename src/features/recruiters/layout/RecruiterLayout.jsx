@@ -1,12 +1,12 @@
 import React from 'react';
 import { Col, Layout, Row } from "antd";
-import { Outlet } from "react-router-dom";
-import HeaderComponent from "../components/Header";
+import { Outlet } from "react-router-dom";   
+import RecruiterHeaderComponent from '../components/RecruiterHeader';
 
-const MasterLayout = () => {
+const RecruiterLayout = () => {
     return (
         <Layout justify="center">
-            <HeaderComponent></HeaderComponent>
+            <RecruiterHeaderComponent></RecruiterHeaderComponent>
             <div flex="auto" align="center"> 
                 <React.Suspense fallback="loading...">
                     <Row justify="center">
@@ -15,10 +15,9 @@ const MasterLayout = () => {
                         </Col>
                     </Row>
                 </React.Suspense>
-
             </div>
         </Layout>
     );
 }
 
-export default MasterLayout;
+export default RecruiterLayout;

@@ -18,3 +18,8 @@ code {
   padding: 10px;
   color: aliceblue;
 } 
+.active-link a{
+  background-color: #3aafa9;
+  border: 1px #3aafa9 solid; 
+  padding: 5px;
+}

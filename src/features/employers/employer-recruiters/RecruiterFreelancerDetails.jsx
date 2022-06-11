@@ -3,7 +3,7 @@ import { message, Card, Button, Popconfirm, Space } from 'antd';
 import { ArrowLeftOutlined, CheckOutlined } from '@ant-design/icons';
 import { useNavigate, useParams } from 'react-router-dom';
 import ReadOnlyField from '../../../utils/shared/components/ReadOnlyField';
-import { freelanceRecruitersData } from '../../../utils/shared/dummy_data/interested_recruiters';
+import { freelanceRecruitersData } from '../../../utils/shared/dummy_data/interested_recruiters'; 
 
 
 

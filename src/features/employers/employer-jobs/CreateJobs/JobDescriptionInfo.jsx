@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import { Form, Row, Col, Space, Typography, Button } from 'antd';
 import { FormItem, Input, InputNumber, Radio, ResetButton, Select, SubmitButton } from 'formik-antd';
 import * as Yup from 'yup';
-import HtmlEditor from '../../../../components/HtmlEditor';
+import HtmlEditor from '../../../../common/components/HtmlEditor';
 
 const { Text } = Typography; 
 const jobDetailsSchema = Yup.object().shape({

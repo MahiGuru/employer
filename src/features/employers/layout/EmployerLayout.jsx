@@ -1,12 +1,12 @@
 import React from 'react';
 import { Col, Layout, Row } from "antd";
-import { Outlet } from "react-router-dom";   
-import RecruiterHeaderComponent from '../features/recruiters/components/RecruiterHeader';
+import { Outlet } from "react-router-dom";
+import HeaderComponent from "../../../common/components/Header";
 
-const RecruiterLayout = () => {
+const MasterLayout = () => {
     return (
         <Layout justify="center">
-            <RecruiterHeaderComponent></RecruiterHeaderComponent>
+            <HeaderComponent></HeaderComponent>
             <div flex="auto" align="center"> 
                 <React.Suspense fallback="loading...">
                     <Row justify="center">
@@ -20,4 +20,4 @@ const RecruiterLayout = () => {
     );
 }
 
-export default RecruiterLayout;
+export default MasterLayout;

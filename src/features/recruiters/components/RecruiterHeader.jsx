@@ -5,6 +5,7 @@ import React from 'react';
 import {
     Link, useLocation, useNavigate
   } from "react-router-dom";
+import UserProfile from '../../../common/components/UserProfile';
 import RecruiterUserProfile from './RecruiterUserProfile';
   
 function RecruiterHeaderComponent() {  
@@ -34,7 +35,7 @@ function RecruiterHeaderComponent() {
                      
                 </Col>
                 <Col span={6} style={styles.profile}> 
-                    <RecruiterUserProfile />
+                    <UserProfile />
                 </Col>
             </Row>
         </>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate, Outlet, useRoutes } from 'react-router-dom';  
 import Nomatch from './Nomatch'; 
-import MasterLayout from './layouts/MasterLayout';  
+import MasterLayout from './features/employers/layout/EmployerLayout';  
 import PostJob from './features/employers/employer-jobs/CreateJobs/CreateJob'; 
 import JobDetails from './features/employers/employer-jobs/jobDetail/JobDetails';
 import JobsList from './features/employers/employer-jobs/JobList/JobsList';
@@ -10,7 +10,7 @@ import EmployerInterviewer from './features/employers/employer-interviewers/Inte
 import EmployerInterviewerDetails from './features/employers/employer-interviewers/InterviewerDetails';
 import EmployerRecruiterFirmDetails from './features/employers/employer-recruiters/RecruiterFirmDetails';
 import EmployerRecruiterFreelancerDetails from './features/employers/employer-recruiters/RecruiterFreelancerDetails';
-import RecruiterLayout from './layouts/RecruiterLayout';
+import RecruiterLayout from './features/recruiters/layout/RecruiterLayout';
 import RecruiterJobs from './features/recruiters/Job/JobsList';
 import RecruiterInterviewerDetails from './features/recruiters/recruiter-interviewers/InterviewerDetails';
 import RecruiterInterviewer from './features/recruiters/recruiter-interviewers/InterviewerPage';
