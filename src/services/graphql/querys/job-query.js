@@ -24,9 +24,7 @@ export const JOB_LIST_QUERY = gql`
         objectives
         key_skills {
           id
-          skill
-          desiredSkill
-          requiredSkill
+          skill 
         }
         responsibilities {
           id

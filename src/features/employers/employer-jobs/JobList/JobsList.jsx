@@ -140,16 +140,10 @@ function JobsList() {
           "objectives": ["As a developer, need to develope new/existing web applications"],
           "key_skills": [
             {
-              "skill": "Director",
-              "desiredSkill": "People management",
-              "requiredSkill": "Client handling and management"
+              "skill": "Director", 
             }
           ],
-          "responsibilities": [
-            {
-              "responsibility": "Maintain and responsible for application development"
-            }
-          ],
+          "responsibilities": [  "Maintain and responsible for application development"  ],
           "required_skills": ["Associate developer with .NET 5"],
           "desired_skills": undefined,
           "resource_pay": [
@@ -190,11 +184,9 @@ function JobsList() {
           "ratings": 5,
           "comments": "Job with lot of benifits",
           "isDeleted": null,
-          "like": [
-            {
-              "like": "4"
-            }
-          ],
+          "like": {
+            like: true
+          },
           "review": [
             {
               "comment": "JOB with reviews",
