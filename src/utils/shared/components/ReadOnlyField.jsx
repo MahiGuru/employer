@@ -5,7 +5,7 @@ function ReadOnlyField({label, value, labelRequired=true, labelClass=styles.labe
     return (
         <Row wrap={true}>
             {labelRequired ? <Col span={labelSpan} style={labelClass}>{label}</Col> : null }
-            <Col flex={1} align="start" justify='center' className={valueClass}>{value ? value : children}</Col>
+            <Col flex={1} align="start" justify='center' style={valueClass}>{value ? value : children}</Col>
         </Row>
     );
 }

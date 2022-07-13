@@ -4,10 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { 
+  ApolloProvider
+} from "@apollo/client"; 
+import appolloClient from './services/graphql';
 
 ReactDOM.render( 
     <BrowserRouter>
-      <App />
+      <ApolloProvider client={appolloClient}>
+        <App />
+      </ApolloProvider>
     </BrowserRouter>,
   document.getElementById('root')
 );

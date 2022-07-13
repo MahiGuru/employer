@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate, Outlet, useRoutes } from 'react-router-dom';  
 import Nomatch from './Nomatch'; 
-import MasterLayout from './features/employers/layout/EmployerLayout';  
+import MasterLayout from './features/employers/employer-jobs/EmployerLayout';  
 import PostJob from './features/employers/employer-jobs/CreateJobs/CreateJob'; 
 import JobDetails from './features/employers/employer-jobs/jobDetail/JobDetails';
 import JobsList from './features/employers/employer-jobs/JobList/JobsList';
@@ -25,7 +25,7 @@ function AppRoutes(props) {
         element: <MasterLayout />, 
         children: [
           { path: '',   element: <Navigate to='jobs' />},
-          { path: "jobs", 
+          { path: "jobs",  
             element: <Outlet />,
             children : [
                 { path: '',   element: <Navigate to='list' />},
@@ -36,7 +36,7 @@ function AppRoutes(props) {
             ]
           },
           { path: "recruiters", 
-            element: <Outlet />,
+            element: <Outlet />, // employers/recruiters-list
             children : [
                 { path: '',   element: <Navigate to='list' />},                
                 { path: "list", element: <EmployerRecruiters /> },
@@ -89,7 +89,7 @@ function AppRoutes(props) {
   
     {
       path: "",
-      element: <Navigate to="/recruiters" />
+      element: <Navigate to="/employer" />
     },
     { path: "*", element: <Nomatch /> },
   ]

@@ -17,13 +17,15 @@ function JobCardComponent({job, clickTitleAction}) {
                     )}> 
                     <Row>
                         <Col flex={'50%'} className="label">Posted on</Col>
-                        <Col flex={3} align="start">{moment(job.updated_at, 'DD/MM/YYYY').format("DD/MM/YYYY")}</Col>
+                        <Col flex={3} align="start">{moment(parseInt(job.updatedAt)).format("DD/MM/YYYY")} </Col>
                     </Row>
                     <Row>
                         <Col flex={'50%'} className="label">Experiece</Col>
-                        <Col flex={3} align="start">{`${job.experience.min}${job.experience.max ? ' to '+ job.experience.max : '+'} ${job.experience.type}`}</Col>
+                        <Col flex={3} align="start">
+                            {`${job.experience?.min}${job.experience?.max ? ' to '+ job.experience?.max : '+'} ${job.experience?.duration}`}
+                        </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                         <Col flex={'50%'} className="label">Interested Recruiters</Col>
                         <Col flex={3} align="start" onClick={() => navigate(`/employer/recruiters/job/${job.id}`)}>
                             <Tag color={job.recruiters.applied ? "processing": 'magenta'}>
@@ -38,15 +40,15 @@ function JobCardComponent({job, clickTitleAction}) {
                               {job.interviewer?.ShrotList}
                           </Tag>
                         </Col>
-                    </Row>  
+                    </Row>  */}
                     <Row justify='center' align='end' style={styles.cardFooter}>
                         <Col flex={2} style={styles.daysLabel} align="start">
-                            {moment(job.updated_at, 'DD/MM/YYYY').fromNow()}    
+                            {moment(parseInt(job.updatedAt)).fromNow()}    
                         </Col>
                         <Col flex={"auto"} align={'end'}>
                             <DeleteOutlined />
                         </Col>
-                    </Row>
+                    </Row> 
                   </Card>
                 </Badge.Ribbon>
         </div>
