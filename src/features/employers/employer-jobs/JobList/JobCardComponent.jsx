@@ -10,9 +10,11 @@ function JobCardComponent({job, clickTitleAction}) {
         <div>
             <Badge.Ribbon text={`${job.status}`} color={job.status === 'Completed' ? 'green' : job.status === 'Hold' ? 'red' : 'blue'}>
                   <Card title={(
-                      <Row justify='center'  align="middle">
-                        <Col flex="50px"><img style={{marginRight: 30}} alt="img" height={36} src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" /></Col>
-                        <Col  flex="auto" onClick={() => {clickTitleAction()}} align="start">{job.title}</Col>
+                      <Row justify='center'  align="middle"> 
+                        <Col  flex="auto" onClick={() => {clickTitleAction()}} align="start">
+                            <h3>{job.employer?.name}</h3>
+                            <h5>{job.title}</h5>
+                        </Col>
                       </Row>
                     )}> 
                     <Row>
